@@ -1,0 +1,6 @@
+<!-- ko foreach: domain -->
+<label class="radio-inline">
+	<input type="radio" data-bind="attr : { value : value, name : $parent.key }, checked: $parent.value">
+	<span data-bind="text: displayValue"></span>
+</label>
+<!-- /ko -->

@@ -1,0 +1,8 @@
+<div data-bind="attr: { class: 'storecomment ' + presentationStyles().joined }">
+	<h3 data-bind="visible: displayName, text: displayName"></h3>
+	<textarea class="form-control" rows="4" maxlength="4000" data-bind="value: commentValue, event: { keypress: keyPressed }"></textarea>
+	<button type="button" class="btn btn-link" data-bind="click: addComment">
+			<i class="fa fa-plus"></i>
+			<span data-bind="text: buttonText"></span>
+	</button>
+</div>

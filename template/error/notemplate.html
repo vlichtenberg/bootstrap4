@@ -1,0 +1,18 @@
+<p class="alert alert-danger">
+    <span class="h4">No template found</span><br><br>
+    <span data-bind="bqHtml: 'name: '+model.name"></span><br>
+    <span data-bind="bqHtml: 'type: '+type "></span><br>
+    <!-- ko if: typeof contentStyle !== 'undefined' -->
+    <span data-bind="bqHtml: 'contentStyle: '+contentStyle "></span><br>
+    <!-- /ko -->
+    <!-- ko ifnot: typeof contentStyle !== 'undefined' -->
+    <span data-bind="bqHtml: 'contentStyle: -' "></span><br>
+    <!-- /ko -->
+    <!-- ko if: presentationStyles().joined.length > 0 -->
+    <span data-bind=" bqHtml: 'presentationStyles: '+presentationStyles().joined"></span><br>
+    <!-- /ko -->
+    <!-- ko if: presentationStyles().joined.length < 1 -->
+    <span data-bind=" bqHtml: 'presentationStyles: -'"></span><br>
+    <!-- /ko -->
+
+</p>

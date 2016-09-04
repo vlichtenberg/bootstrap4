@@ -1,0 +1,6 @@
+<div data-bind="foreach: { data: messages, as: 'message' }">
+	<div class="alert alert-danger" data-bind="text: message.text"></div>
+</div>
+<div data-bind="foreach: children">
+	<!-- ko template: { name: template } --><!-- /ko -->
+</div>

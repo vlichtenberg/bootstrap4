@@ -1,0 +1,8 @@
+<div data-bind="css: {'has-warning': hasWarning, 'has-error': hasError}">
+    <div class="controls">
+        <!-- ko template: { name: fieldValueTemplate } --><!-- /ko -->
+        <div data-bind="foreach: { data: messages, as: 'message' }">
+            <span class="help-block" data-bind="text: message.text"></span>
+        </div>
+    </div>
+</div>

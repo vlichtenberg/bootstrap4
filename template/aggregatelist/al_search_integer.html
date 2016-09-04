@@ -1,0 +1,52 @@
+<script type="text/html" id="al_search_integer_popover">
+	<div class="input-prepend">
+		<span class="add-on">
+			&ge;
+		</span>
+		<input class="searchField" type="text" class="span2" data-bind="value: gte, hasFocus: gteFocused, valueUpdate: 'afterkeydown', event: {'keyup' : handleGteKeyUp}">
+	</div>
+	<div class="input-prepend">
+		<span class="add-on">
+			&le;
+		</span>
+		<input class="searchField" type="text" class="span2" data-bind="value: lte, hasFocus: lteFocused, valueUpdate: 'afterkeydown', event: {'keyup' : handleLteKeyUp}">
+	</div>
+	<div class="input-prepend">
+		<span class="add-on">
+			=
+		</span>
+		<input class="searchField" type="text" class="span2" data-bind="value: eq, hasFocus: eqFocused, valueUpdate: 'afterkeydown', event: {'keyup' : handleEqKeyUp}">
+	</div>
+	<div class="checkbox show-all" data-bind="visible: !simple()">
+		<label>
+			<input type="checkbox" data-bind="checked: showAll" >
+			<span data-bind="text: showAllText">Show All</span>
+		</label>
+	</div>
+	<div class="checkbox" data-bind="visible: !simple()">
+		<label>
+			<input type="checkbox" data-bind="checked: showUnknown" >
+			<span data-bind="text: showUnknownText">Show Unknown</span>
+		</label>
+	</div>
+</script>
+<div role="button" class="search-filter numeric-search-filter">
+<i data-bind="
+	popover: {
+		template: 'al_search_integer_popover',
+		title: title,
+		placement: 'top',
+		onBeforeShow: onBeforeShow,
+		onShow: onShow,
+		onHide: onHide,
+	  	onInit: onInit
+	}, css: {
+		'search-filter-trigger': true,
+		'fa fa-filter': true,
+		'muted': !iconActive()
+	}, event: {
+		mouseover: handleMouseOver,
+		mouseout: handleMouseOut
+	}
+"></i>
+</div>

@@ -1,0 +1,10 @@
+<!-- ko foreach: children -->
+	<!-- ko if: model.name == 'searchContainer' -->
+		<!-- ko if: $parent.showSearch -->
+			<!-- ko template: { name: template } --><!-- /ko -->
+		<!-- /ko -->
+	<!-- /ko -->	
+	<!-- ko ifnot: model.name == 'searchContainer' -->
+		<!-- ko template: {name : template } --><!-- /ko -->
+	<!-- /ko -->
+<!-- /ko -->

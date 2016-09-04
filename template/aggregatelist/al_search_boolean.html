@@ -1,0 +1,36 @@
+<script type="text/html" id="al_search_boolean_popover">
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" data-bind="checked: showTrue" ><span data-bind="text: showTrueText">Show True</span>
+		</label>
+	</div>
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" data-bind="checked: showFalse" ><span data-bind="text: showFalseText">Show False</span>
+		</label>
+	</div>
+	<div class="checkbox" data-bind="visible: !simple()">
+		<label>
+			<input type="checkbox" data-bind="checked: showUnknown" ><span data-bind="text: showUnknownText">Show Unknown</span>
+		</label>
+	</div>
+</script>
+<div role="button" class="search-filter values-search-filter">
+<i data-bind="
+	popover: {
+		template: 'al_search_boolean_popover',
+		title: title,
+		placement: 'top',
+		onBeforeShow: onBeforeShow,
+		onHide: onHide,
+	  	onInit: onInit
+	}, css: {
+		'search-filter-trigger': true,
+		'fa fa-filter': true,
+		'muted': !iconActive()
+	}, event: {
+		mouseover: handleMouseOver,
+		mouseout: handleMouseOut
+	}
+"></i>
+</div>

@@ -1,0 +1,1510 @@
+<script type="text/html" id="core/template/aggregatelist/al_footer">
+<div class="bq-paging clearfix">
+	<div class="bq-paging-navigation pull-right">
+
+		<!-- ko with: first -->
+		<button class="btn btn-sm btn-default"
+				type="button"
+				data-bind="click: handleClick, disable: disabled">
+				<i class="fa fa-angle-double-left"></i>
+		</button>
+		<!--  /ko -->
+		<!-- ko with: previous -->
+		<button class="btn btn-sm btn-default"
+				type="button"
+				data-bind="click: handleClick, disable: disabled">
+				<i class="fa fa-angle-left"></i>
+		</button>
+		<!--  /ko -->
+
+		<span>
+			<span data-bind="text: selectorPrefix.text"></span>
+			<!-- ko with: selectorField -->
+			<input type="text" class="bq-page-number" data-bind="value: value">
+			<!--  /ko -->
+			<span data-bind="text: selectorSuffix.text"></span>
+		</span>
+
+		<!-- ko with: next -->
+		<button class="btn btn-sm btn-default"
+				type="button"
+				data-bind="click: handleClick, disable: disabled">
+				<i class="fa fa-angle-right"></i>
+		</button>
+		<!--  /ko -->
+		<!-- ko with: last -->
+		<button class="btn btn-sm btn-default"
+				type="button"
+				data-bind="click: handleClick, disable: disabled">
+				<i class="fa fa-angle-double-right"></i>
+		</button>
+		<!--  /ko -->
+
+		<!-- ko with: clear -->
+		<button class="btn btn-sm btn-default"
+			type="button"
+			data-bind="click: handleClick, disable: disabled, bqIconTooltip : caption">
+			<i class="fa fa-ban"></i>
+		</button>
+		<!-- /ko -->
+
+	</div>
+	<div class="bq-paging-feedback" data-bind="if: feedback"><!-- ko text: feedback.text --><!-- /ko --></span></div>
+</div>
+</script>
+
+<script type="text/html" id="core/template/aggregatelist/al_header">
+<div class="bq-limit-reached" data-bind="if: hasLimit">
+	<span data-bind="text: limitMessage"></span>
+	<button type="button" class="btn-link" data-bind="text: showAll, click: handleShowAll"></button>
+</div>
+
+</script>
+
+<script type="text/html" id="core/template/aggregatelist/al_headercell">
+<th data-bind="attr: { 'class': 'bq-table-header bq-table-header-sortable '+presentationStyles().joined }">
+	<div role="button" data-bind="click: handleClick">
+		<div class="pull-left" data-bind="if: content">
+			<div data-bind="template: { name: template, data: content }"></div>
+		</div>
+		<div class="pull-left margin">
+		   	<i data-bind="if: sortedAscending">
+		   		<i class="fa fa-chevron-up"></i>
+		   	</i>
+		   	<i data-bind="if: sortedDescending">
+		 		<i class="fa fa-chevron-down"></i>
+		 	</i>
+		</div>
+	</div>
+	<div class="pull-left margin" data-bind="if: searchViewModel">
+		<!-- ko template: { name: template, data: searchViewModel } -->
+		<!-- /ko -->
+	</div>
+
+</th>
+
+</script>
+
+<script type="text/html" id="al_search_boolean_popover">
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" data-bind="checked: showTrue" ><span data-bind="text: showTrueText">Show True</span>
+		</label>
+	</div>
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" data-bind="checked: showFalse" ><span data-bind="text: showFalseText">Show False</span>
+		</label>
+	</div>
+	<div class="checkbox" data-bind="visible: !simple()">
+		<label>
+			<input type="checkbox" data-bind="checked: showUnknown" ><span data-bind="text: showUnknownText">Show Unknown</span>
+		</label>
+	</div>
+</script>
+<script type="text/html" id="core/template/aggregatelist/al_search_boolean">
+
+<div role="button" class="search-filter values-search-filter">
+<i data-bind="
+	popover: {
+		template: 'al_search_boolean_popover',
+		title: title,
+		placement: 'top',
+		onBeforeShow: onBeforeShow,
+		onHide: onHide,
+	  	onInit: onInit
+	}, css: {
+		'search-filter-trigger': true,
+		'fa fa-filter': true,
+		'muted': !iconActive()
+	}, event: {
+		mouseover: handleMouseOver,
+		mouseout: handleMouseOut
+	}
+"></i>
+</div>
+</script>
+
+<script type="text/html" id="al_search_date_popover">
+	<div class="date-search-popover-content clearfix">
+		<div class="date-search-menu pull-left">
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" data-bind="checked: fromChecked, disable: showAll() && !simple()" >
+					<span data-bind="click: handleFromClick, css: {active: fromVisible}">From</span>
+				</label>
+					<i class="fa fa-angle-right pull-right"></i>
+			</div>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" data-bind="checked: toChecked, disable: showAll() && !simple()" >
+					<span data-bind="click: handleToClick, css: {active: toVisible}">To</span>
+				</label>
+					<i class="fa fa-angle-right pull-right"></i>
+			</div>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" data-bind="checked: onChecked, disable: showAll() && !simple()" >
+					<span data-bind="click: handleOnClick, css: {active: onVisible}">On</span>
+				</label>
+					<i class="fa fa-angle-right pull-right"></i>
+			</div>
+			<div class="checkbox show-all" data-bind="visible: !simple()">
+				<label>
+					<input type="checkbox" data-bind="checked: showAll">
+					<span data-bind="text: showAllText">Show All</span>
+				</label>
+			</div>
+			<div class="checkbox" data-bind="visible: !simple()">
+				<label>
+					<input type="checkbox" data-bind="checked: showUnknown">
+					<span data-bind="text: showUnknownText">Show Unknown</span>
+				</label>
+			</div>
+		</div>
+
+		<div class="pull-right date-search-picker" data-bind="visible: toVisible">
+			<div data-bind="bqInlineDatePicker: {value: toValue}"></div>
+			<div class="date-search-today" data-bind="text: todayText, click: handleToday">Today</div>
+		</div>
+		<div class="pull-right date-search-picker" data-bind="visible: fromVisible">
+			<div data-bind="bqInlineDatePicker: {value: fromValue}"></div>
+			<div class="date-search-today" data-bind="text: todayText, click: handleToday">Today</div>
+		</div>
+		<div class="pull-right date-search-picker" data-bind="visible: onVisible">
+			<div data-bind="bqInlineDatePicker: {value: onValue}"></div>
+			<div class="date-search-today" data-bind="text: todayText, click: handleToday">Today</div>
+		</div>
+	</div>
+</script>
+<script type="text/html" id="core/template/aggregatelist/al_search_date">
+
+
+<div role="button" class="search-filter date-search-filter">
+<i data-bind="
+	popover: {
+		template: 'al_search_date_popover',
+	  	title: title,
+	  	placement: 'top',
+	  	onBeforeShow: onBeforeShow,
+	  	onHide: onHide,
+	  	onInit: onInit
+	}, css: {
+		'search-filter-trigger': true,
+		'fa fa-filter': true,
+		'muted': !iconActive()
+	}, event: {
+		mouseover: handleMouseOver,
+		mouseout: handleMouseOut
+	}
+"></i>
+</div>
+
+
+</script>
+
+<script type="text/html" id="al_search_datetime_popover">
+	<div class="date-search-popover-content clearfix">
+		<div class="date-search-menu pull-left">
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" data-bind="checked: fromChecked, disable: showAll() && !simple()" >
+					<span data-bind="click: handleFromClick, css: {active: fromVisible}">From</span>
+				</label>
+				<i class="fa fa-angle-right pull-right"></i>
+			</div>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" data-bind="checked: toChecked, disable: showAll() && !simple()" >
+					<span data-bind="click: handleToClick, css: {active: toVisible}">To</span>
+				</label>
+				<i class="fa fa-angle-right pull-right"></i>
+			</div>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" data-bind="checked: onChecked, disable: showAll() && !simple()" >
+					<span data-bind="click: handleOnClick, css: {active: onVisible}">On</span>
+				</label>
+				<i class="fa fa-angle-right pull-right"></i>
+			</div>
+			<div class="checkbox show-all" data-bind="visible: !simple()">
+				<label>
+					<input type="checkbox" data-bind="checked: showAll">
+					<span data-bind="text: showAllText">Show All</span>
+				</label>
+			</div>
+			<div class="checkbox" data-bind="visible: !simple()">
+				<label>
+					<input type="checkbox" data-bind="checked: showUnknown">
+					<span data-bind="text: showUnknownText">Show Unknown</span>
+				</label>
+			</div>
+		</div>
+
+		<div class="pull-right date-search-picker" data-bind="visible: toVisible">
+			<div data-bind="bqInlineDatePicker: {value: toValue}"></div>
+			<div class="date-search-today" data-bind="text: nowText, click: handleNow">Now</div>
+			<div class="time-picker">
+				<input type="text" class="hour" maxlength="2" data-bind="value: toHours">
+				<span class="separator">:</span>
+				<input type="text" class="minute" maxlength="2" data-bind="value: toMinutes">
+			</div>
+		</div>
+
+		<div class="pull-right date-search-picker" data-bind="visible: fromVisible">
+			<div data-bind="bqInlineDatePicker: {value: fromValue}"></div>
+			<div class="date-search-today" data-bind="text: nowText, click: handleNow">Now</div>
+			<div class="time-picker">
+				<input type="text" class="hour" maxlength="2" data-bind="value: fromHours">
+				<span class="separator">:</span>
+				<input type="text" class="minute" maxlength="2" data-bind="value: fromMinutes">
+			</div>
+		</div>
+
+		<div class="pull-right date-search-picker" data-bind="visible:onVisible">
+			<div data-bind="bqInlineDatePicker: {value: onValue}"></div>
+			<div class="date-search-today" data-bind="text: todayText, click: handleToday">Today</div>
+		</div>
+
+</script>
+<script type="text/html" id="core/template/aggregatelist/al_search_datetime">
+
+
+<div role="button" class="search-filter date-search-filter">
+<i data-bind="
+	popover: {
+		template: 'al_search_datetime_popover',
+	  	title: title,
+	  	placement: 'top',
+	  	onBeforeShow: onBeforeShowDateTime,
+	  	onHide: onHide,
+	  	onInit: onInit
+	}, css: {
+		'search-filter-trigger': true,
+		'fa fa-filter': true,
+		'muted': !iconActive()
+	}, event: {
+		mouseover: handleMouseOver,
+		mouseout: handleMouseOut
+	}
+"></i>
+</div>
+
+
+
+</script>
+
+<script type="text/html" id="al_search_domain_popover">
+	<div data-bind>
+		<div class="checkbox" data-bind="visible: showAllVisible">
+			<label>
+				<input type="checkbox" data-bind="checked: showAll" >
+				<span data-bind="text: selectAllText">Select All</span>
+			</label>
+		</div>
+	</div>
+
+	<div data-bind="foreach: valueList">
+    	<div class="checkbox">
+			<label>
+				<input type="checkbox" data-bind="checked: checked"><span data-bind="text: displayValue"></span>
+			</label>
+		</div>
+	</div>
+
+	<div class="checkbox" data-bind="visible: !simple()">
+		<label>
+			<input type="checkbox" data-bind="checked: showUnknown">
+			<span data-bind="text: showUnknownText">Unknown</span>
+		</label>
+	</div>
+</script>
+<script type="text/html" id="core/template/aggregatelist/al_search_domain">
+
+<div role="button" class="search-filter values-search-filter">
+	<i data-bind="
+	popover: {
+		template: 'al_search_domain_popover',
+		title: title,
+		placement: 'top',
+		onBeforeShow: onBeforeShow,
+		onHide: onHide,
+	  	onInit: onInit
+	}, css: {
+		'search-filter-trigger': true,
+		'fa fa-filter': true,
+		'muted': !iconActive()
+	}, event: {
+		mouseover: handleMouseOver,
+		mouseout: handleMouseOut
+	}
+"></i>
+</div>
+</script>
+
+<script type="text/html" id="al_search_integer_popover">
+	<div class="input-prepend">
+		<span class="add-on">
+			&ge;
+		</span>
+		<input class="searchField" type="text" class="span2" data-bind="value: gte, hasFocus: gteFocused, valueUpdate: 'afterkeydown', event: {'keyup' : handleGteKeyUp}">
+	</div>
+	<div class="input-prepend">
+		<span class="add-on">
+			&le;
+		</span>
+		<input class="searchField" type="text" class="span2" data-bind="value: lte, hasFocus: lteFocused, valueUpdate: 'afterkeydown', event: {'keyup' : handleLteKeyUp}">
+	</div>
+	<div class="input-prepend">
+		<span class="add-on">
+			=
+		</span>
+		<input class="searchField" type="text" class="span2" data-bind="value: eq, hasFocus: eqFocused, valueUpdate: 'afterkeydown', event: {'keyup' : handleEqKeyUp}">
+	</div>
+	<div class="checkbox show-all" data-bind="visible: !simple()">
+		<label>
+			<input type="checkbox" data-bind="checked: showAll" >
+			<span data-bind="text: showAllText">Show All</span>
+		</label>
+	</div>
+	<div class="checkbox" data-bind="visible: !simple()">
+		<label>
+			<input type="checkbox" data-bind="checked: showUnknown" >
+			<span data-bind="text: showUnknownText">Show Unknown</span>
+		</label>
+	</div>
+</script>
+<script type="text/html" id="core/template/aggregatelist/al_search_integer">
+
+<div role="button" class="search-filter numeric-search-filter">
+<i data-bind="
+	popover: {
+		template: 'al_search_integer_popover',
+		title: title,
+		placement: 'top',
+		onBeforeShow: onBeforeShow,
+		onShow: onShow,
+		onHide: onHide,
+	  	onInit: onInit
+	}, css: {
+		'search-filter-trigger': true,
+		'fa fa-filter': true,
+		'muted': !iconActive()
+	}, event: {
+		mouseover: handleMouseOver,
+		mouseout: handleMouseOut
+	}
+"></i>
+</div>
+</script>
+
+<script type="text/html" id="al_search_numeric_popover">
+	<div class="input-prepend">
+		<span class="add-on">
+			&ge;
+		</span>
+		<input class="searchField" type="text" class="span2" data-bind="value: gte, hasFocus: gteFocused, valueUpdate: 'afterkeydown', event: {'keyup' : handleGteKeyUp}">
+	</div>
+	<div class="input-prepend">
+		<span class="add-on">
+			&le;
+		</span>
+		<input class="searchField" type="text" class="span2" data-bind="value: lte, hasFocus: lteFocused, valueUpdate: 'afterkeydown', event: {'keyup' : handleLteKeyUp}">
+	</div>
+	<div class="input-prepend">
+		<span class="add-on">
+			=
+		</span>
+		<input class="searchField" type="text" class="span2" data-bind="value: eq, hasFocus: eqFocused, valueUpdate: 'afterkeydown', event: {'keyup' : handleEqKeyUp}">
+	</div>
+	<div class="checkbox show-all" data-bind="visible: !simple()">
+		<label>
+			<input type="checkbox" data-bind="checked: showAll" >
+			<span data-bind="text: showAllText">Show All</span>
+		</label>
+	</div>
+	<div class="checkbox" data-bind="visible: !simple()">
+		<label>
+			<input type="checkbox" data-bind="checked: showUnknown" >
+			<span data-bind="text: showUnknownText">Show Unknown</span>
+		</label>
+	</div>
+</script>
+<script type="text/html" id="core/template/aggregatelist/al_search_numeric">
+
+<div role="button" class="search-filter numeric-search-filter">
+<i data-bind="
+	popover: {
+		template: 'al_search_numeric_popover',
+		title: title,
+		placement: 'top',
+		onBeforeShow: onBeforeShow,
+		onShow: onShow,
+		onHide: onHide,
+	  	onInit: onInit
+	}, css: {
+		'search-filter-trigger': true,
+		'fa fa-filter': true,
+		'muted': !iconActive()
+	}, event: {
+		mouseover: handleMouseOver,
+		mouseout: handleMouseOut
+	}
+"></i>
+</div>
+</script>
+
+<script type="text/html" id="al_seach_text_popover">
+		<div class="input-prepend input-append">
+			<span class="add-on" data-bind="click: sendNotification">
+				<i class="fa fa-search"></i>
+			</span>
+			<input class="searchField" type="text" class="col-xs-12" data-bind="value: text, hasFocus: textFocused, valueUpdate: 'afterkeydown', event: {'keyup' : handleKeyUp}">
+			<span class="add-on" data-bind="event: { mouseover: clearButtonHovered, mouseout: clearButtonNotHovered, click: handleClearButton }">
+				<i class="fa fa-times"></i>
+			</span>
+		</div>
+		<div class="checkbox show-all" data-bind="visible: !simple()">
+			<label>
+				<input type="checkbox" data-bind="checked: showAll">
+				<span data-bind="text: showAllText">Show All</span>
+			</label>
+		</div>
+		<div class="checkbox" data-bind="visible: !simple()">
+			<label>
+				<input type="checkbox" data-bind="checked: showUnknown">
+				<span data-bind="text: showUnknownText">Show Unknown</span>
+			</label>
+		</div>
+	</script>
+<script type="text/html" id="core/template/aggregatelist/al_search_text">
+	
+<div role="button" class="search-filter text-search-filter">
+	<i data-bind="
+		popover: {
+			template: 'al_seach_text_popover',
+			title: title,
+			placement: 'top',
+			onBeforeShow: onBeforeShow,
+			onShow: onShow,
+			onHide: onHide,
+			onInit: onInit
+		}, css: {
+			'search-filter-trigger': true,
+			'fa fa-filter': true,
+			'muted': !iconActive()
+		}, event: {
+			mouseover: handleMouseOver,
+			mouseout: handleMouseOut
+		}
+	"></i>
+</div>
+</script>
+
+<script type="text/html" id="core/template/asset/asset">
+<p data-bind="attr: { class: presentationStyles().joined }, text: text"></p>
+</script>
+
+<script type="text/html" id="core/template/button/button">
+<button type="button" data-bind=" attr: { class: 'btn btn-default' +  presentationStyles().joined }, click: handleClick, disable: disabled, text: caption, css: { 'pull-right': presentationStyles().align_right }"></button>
+</script>
+
+<script type="text/html" id="core/template/button/buttonlink">
+<button type="button" class="btn btn-link" data-bind="click: handleClick, disable: disabled, text: caption, css: { 'pull-right': presentationStyles().align_right }"></button>
+</script>
+
+<script type="text/html" id="core/template/button/buttonprimary">
+<button type="button" class="btn btn-primary" data-bind="click: handleClick, disable: disabled, text: caption, css: { 'pull-right': presentationStyles().align_right }"></button>
+</script>
+
+<script type="text/html" id="core/template/button/iconbutton">
+<button type="button" class="btn" data-bind="click: handleClick, disable: disabled, 
+css: {	'btn-default': !presentationStyles().button_primary && !presentationStyles().button_link, 
+		'btn-primary': presentationStyles().button_primary,
+		'btn-link': presentationStyles().button_link,
+		'pull-right': presentationStyles().align_right }">
+	<i data-bind="attr: { class: 'button-icon ' + presentationStyles().icon }"></i>
+	<!-- ko text: caption --><!-- /ko -->
+</button>
+</script>
+
+<script type="text/html" id="core/template/button/icononlybutton">
+<a href="#" class="icon" data-bind="click: handleClick, bqIconTooltip : caption, css: { 'pull-right': presentationStyles().align_right }"><i data-bind="attr: {class: presentationStyles().icon}"></i></a>
+</script>
+
+<script type="text/html" id="core/template/comment/commentlist">
+<h2 data-bind="visible: displayName, text: displayName"></h2>
+<div class="commentlist" data-bind="foreach: children">
+	<div class="commentlist-entry">
+		<div class="commentlist-entry-details">
+			<span class="commentlist-entry-details-username" data-bind="text: $data.properties()['username']"></span>
+			<span class="commentlist-entry-details-title" data-bind="text: $data.properties()['title']"></span>
+			<span class="commentlist-entry-details-date pull-right" data-bind="text: $data.properties()['date']"></span>
+		</div>	
+		<div class="commentlist-entry-body">
+			<!-- ko if: $parent.shouldResize($data.properties()['comment']) -->				
+				<span class="clickable-comment" data-bind="click: $parent.toggleText">
+					<span class="comment shortComment" data-bind="text: $parent.getShortComment($data.properties()['comment'])"></span>
+					<span class="comment totalComment" style="display: none;" data-bind="bqHtml: $data.properties()['comment']"></span>
+				</span>		
+			<!-- /ko -->
+			<!-- ko ifnot: $parent.shouldResize($data.properties()['comment']) -->
+				<span class="comment simpleComment" data-bind="text: $data.properties()['comment']"></span>											
+			<!-- /ko -->
+		</div>													
+	</div>
+</div>
+
+</script>
+
+<script type="text/html" id="core/template/comment/storecomment">
+<div data-bind="attr: { class: 'storecomment ' + presentationStyles().joined }">
+	<h3 data-bind="visible: displayName, text: displayName"></h3>
+	<textarea class="form-control" rows="4" maxlength="4000" data-bind="value: commentValue, event: { keypress: keyPressed }"></textarea>
+	<button type="button" class="btn btn-link" data-bind="click: addComment">
+			<i class="fa fa-plus"></i>
+			<span data-bind="text: buttonText"></span>
+	</button>
+</div>
+</script>
+
+<script type="text/html" id="core/template/container/breadcrumb">
+<ul class="breadcrumb" data-bind="foreach: { data: children, as: 'crumb'}">
+	<li data-bind="css: { active: crumb.properties().isCurrent, disabled: !crumb.properties().isPassed && !crumb.properties().isCurrent}">
+		<span class="bq-inline" data-bind="if: crumb.properties().isPassed">
+			<a href="#" data-bind="click: handleClick, text: crumb.properties().displayName"></a>
+		</span>
+		<span data-bind="ifnot: crumb.properties().isPassed">
+			<span data-bind="text: crumb.properties().displayName"></span>
+		</span>						
+	</li>
+</ul>
+</script>
+
+<script type="text/html" id="core/template/container/column">
+ <div class="col-xs-12" data-bind="attr: { class: 'col-md-' + span()}, foreach: children">
+	<!-- ko template: { name: template } --><!-- /ko -->
+ </div>
+</script>
+
+<script type="text/html" id="core/template/container/container">
+<div>
+	<!-- ko if: displayName -->
+	<h2 data-bind="text: displayName"></h2>
+	<!-- /ko -->
+
+	<!-- ko foreach: children-->
+	<!-- ko template: { name: template } --><!-- /ko -->
+	<!-- /ko -->
+</div>
+</script>
+
+<script type="text/html" id="core/template/container/dashboard/dashboard-body">
+<div class="page-content" role="main" data-bind="foreach: children">
+	<!-- ko template: { name: template } --><!-- /ko -->
+</div>
+</script>
+
+<script type="text/html" id="core/template/container/dashboard/dashboard-footer">
+<footer id="footer" class="container-fluid dashboard" role="contentinfo">
+	<div class="row">
+		<div class="col-xs-12" data-bind="foreach: children">
+			<!-- ko template: { name: template } --><!-- /ko -->
+		</div>
+
+	</div>
+	<p class="disclaimer">2014 © Blueriq. All Rights Reserved.</p>
+
+</footer>
+</script>
+
+<script type="text/html" id="core/template/container/dashboard/dashboard-header">
+<header role="banner" class="">
+		  <div class="row">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="col-xs-6" >
+		    	<h1>
+			      	<a href="http://www.blueriq.com" class="brand">
+						<img data-bind="attr:{src: context.configuration.resourceUri+context.configuration.themePath+'img/logo.png'}">
+					</a>
+				</h1>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="col-xs-6">
+				<ul data-bind="foreach : children" class="nav navbar-nav navbar-right">
+		        	<li>
+		                <!-- ko template: { name: template } --><!-- /ko -->
+		            </li>
+		        </ul>
+		    </div>
+		</div>
+</header>
+</script>
+
+<script type="text/html" id="core/template/container/dashboard/dashboard-menu">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="row">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainnav">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-fw fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="mainnav" data-bind="foreach : children">
+            <!-- ko template: { name: template} --><!-- /ko -->
+        </div>
+    </div>
+</nav>
+</script>
+
+<script type="text/html" id="core/template/container/easy-pie-chart">
+<div data-bind="attr: { class: 'pie-chart ' + presentationStyles().joined }">
+    <div data-bind="bqEasyPieChart: (properties().value / properties().maxvalue * 100), style: properties().color" class="easyPieChart" data-percent="0">
+        <div class="pie-chart-value" data-bind="text: properties().value"></div>
+    </div>
+    <div class="pie-chart-caption">&nbsp;<span data-bind="text: displayName"></span></div>
+</div>
+</script>
+
+<script type="text/html" id="core/template/container/externalcontent">
+<div class="embed-responsive embed-responsive-4by3">
+    <iframe class="embed-responsive-item" frameborder="0" data-bind="attr: { src: children()[0].value, class: presentationStyles().joined  }"></iframe>
+</div>
+
+</script>
+
+<script type="text/html" id="core/template/container/filedownload">
+<!-- ko with: buttonViewModel -->
+<a href="#" class="icon" data-bind="click: handleClick, bqIconTooltip : caption"><i data-bind="attr: {class: presentationStyles().icon}"></i></a>
+<!-- /ko -->
+</script>
+
+<script type="text/html" id="core/template/container/fileupload">
+<div>
+	<h2 data-bind="visible: displayName, text: displayName"></h2>
+
+	<div class="bq-fileupload" data-bind="bqFileUpload: files,
+														  url: url,
+														  allowedExtensions: allowedExtensions,
+														  maxFileSize: maxFileSize,
+														  singleFileMode: singleFileMode,
+														  fileSizeDescription: fileSizeDescription,
+														  extensionDescription: extensionDescription,
+														  fileSizeValidationMessage: fileSizeValidationMessage,
+														  extensionValidationMessage: extensionValidationMessage,
+														  singleUploadLabel: singleUploadLabel,
+														  multiUploadLabel: multiUploadLabel,
+														  uploadStartHandler: uploadStartHandler,
+														  uploadDoneHandler: uploadDoneHandler,
+														  progressPercentageHandler: progressPercentageHandler">
+		<div class="dropzone">
+			<span class="btn fileinput-button btn-link">
+				<i class="button-icon fa fa-plus"></i>
+				<span class="fileUploadLabel"></span>
+				<input class="fileUploadInput" type="file"/>
+			</span>
+		</div>
+		<p class="muted">
+			<small class="fileUploadDescription"></small>
+		</p>
+		<!-- ko if: uploadProgress() -->
+		<div class="progress">
+			<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" data-bind="style: { width: uploadProgress }, aria-valuenow: uploadProgress">
+				<span class="sr-only">40% Complete (success)</span>
+			</div>
+		</div>
+
+		<!-- /ko -->
+
+		<!-- ko if: invalidFiles().length > 0 -->
+		<table class="table table-striped">
+			<caption class="text-error fileupload-table-caption" data-bind="text: uploadFailedMessage"></caption>
+		    <tbody data-bind="foreach: invalidFiles">
+			    <tr>
+			   	 	<td><i class="fa fa-file"></i></td>
+		   			<td class="fileInfo"><span data-bind="text: name"></span> (<span data-bind="text: size"></span>)</td>
+		    		<td class="fileError"><span data-bind="text: errorMessage" class="text-error"></span></td>
+			    </tr>
+		    </tbody>
+		</table>
+		<!-- /ko -->
+
+	    <div data-bind="if: serverErrorMessagesContainer">
+	    	<div data-bind="template: { name: template, data: serverErrorMessagesContainer }"></div>
+	    </div>
+	</div>
+</div>
+</script>
+
+<script type="text/html" id="core/template/container/formfooter">
+<div class="bq-footer" data-bind="foreach: children">
+	<!-- ko template: {name: template} --><!-- /ko -->
+</div>
+</script>
+
+<script type="text/html" id="core/template/container/inlinegroup">
+<p data-bind="foreach: children">
+    <!-- ko template: { name: template } --><!-- /ko -->
+</p>
+</script>
+
+<script type="text/html" id="core/template/container/instancelinker">
+<div data-bind="attr: { class: presentationStyles().joined  }, foreach: children">
+	<!-- ko template: { name: template } --><!-- /ko -->
+</div>
+</script>
+
+<script type="text/html" id="core/template/container/instancelist">
+<!-- ko foreach: children -->
+	<!-- ko if: model.name == 'searchContainer' -->
+		<!-- ko if: $parent.showSearch -->
+			<!-- ko template: { name: template } --><!-- /ko -->
+		<!-- /ko -->
+	<!-- /ko -->	
+	<!-- ko ifnot: model.name == 'searchContainer' -->
+		<!-- ko template: {name : template } --><!-- /ko -->
+	<!-- /ko -->
+<!-- /ko -->
+</script>
+
+<script type="text/html" id="core/template/container/menubar">
+<h2 data-bind="visible: displayName, text: displayName"></h2>
+<div data-bind="attr: { class: 'btn-group ' + presentationStyles().joined }, foreach: children">
+
+    <!-- ko if: type == 'presentationStyles().icon' -->
+    <i data-bind="attr: { class: 'button-icon ' + presentationStyles().icon }"></i>
+    <!-- /ko -->
+
+    <!-- ko if: type == 'button' -->
+
+    <button type="button"
+            class="btn"
+            data-bind=" click: handleClick,
+			   				disable: disabled,
+			   				text: caption,
+			   				css: { 'btn-primary highlighted': presentationStyles().highlighted,
+			   						'btn-default': !presentationStyles().highlighted}"></button>
+
+    <!-- /ko -->
+    <!-- ko if: type == 'container' -->
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle"
+                data-toggle="dropdown" data-bind="css: {'btn-primary highlighted': presentationStyles().highlighted}">
+            <span data-bind="text: displayName"></span>&nbsp;
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" data-bind="foreach: $data.children">
+            <li style="text-align: center;">
+                <a href="#" data-bind="text: caption, click: handleClick"></a>
+            </li>
+        </ul>
+    </div>
+    <!-- /ko -->
+</div>
+
+</script>
+
+<script type="text/html" id="core/template/container/navbar">
+<ul class="nav navbar-nav" data-bind="foreach: children">
+    <!-- ko if: type == 'button' -->
+    <li data-bind="click: handleClick, css: {'active': presentationStyles().highlighted}">
+
+        <a href="#">
+            <!-- ko if: presentationStyles().icon -->
+            <span><i data-bind="attr: { class: 'button-icon ' + presentationStyles().icon }"></i> </span>
+            <!-- /ko -->
+            <!-- ko text: caption --><!-- /ko -->
+        </a>
+    </li>
+    <!-- /ko-->
+    <!-- ko if: type == 'container' -->
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <!-- ko if: presentationStyles().icon -->
+            <span><i data-bind="attr: { class: 'button-icon ' + presentationStyles().icon }"></i> </span>
+            <!-- /ko -->
+            <!-- ko text: displayName --><!-- /ko -->
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu" data-bind="foreach: children">
+            <li data-bind="click: handleClick">
+                <a href="#">
+                    <!-- ko if: presentationStyles().icon -->
+                    <span><i data-bind="attr: { class: 'button-icon ' + presentationStyles().icon }"></i> </span>
+                    <!-- /ko -->
+                    <!-- ko text: caption --><!-- /ko -->
+                </a>
+            </li>
+        </ul>
+    </li>
+    <!-- /ko-->
+</ul>
+</script>
+
+<script type="text/html" id="core/template/container/pagefooter">
+<div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="btn-group btn-group-justified" role="group" data-bind="foreach: children">
+        <div class="btn-group">
+            <button type="button" class="btn" data-bind="click: handleClick, disable: disabled, text: caption"></button>
+        </div>
+    </div>
+</div>
+</script>
+
+<script type="text/html" id="core/template/container/row">
+<div class="row" data-bind="foreach: children">
+	<!-- ko template: { name: template } --><!-- /ko -->
+</div>
+</script>
+
+<script type="text/html" id="core/template/container/table/table">
+<div class="bq-table" data-bind="bqMode: ['fieldValueOnly']">
+	<!-- ko if: properties().limitmessage -->
+	<div class="alert" data-bind="text: properties().limitmessage"></div>
+	<!-- /ko -->
+
+        <table class="table table-striped">
+            <thead data-bind="if: header">
+                <tr data-bind="foreach: header.children">
+                    <!-- ko template: { name: template } --><!-- /ko -->
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: rows">
+                <tr data-bind="foreach: children">
+                    <!-- ko template: { name: template } --><!-- /ko -->
+                </tr>
+            </tbody>
+        </table>
+   
+</div>
+
+</script>
+
+<script type="text/html" id="core/template/container/table/tablecell">
+<td data-bind="attr: { class: presentationStyles().joined }, foreach: children">
+	<!-- ko template: { name: template } --><!-- /ko -->
+</td>
+
+</script>
+
+<script type="text/html" id="core/template/container/table/tableheader">
+<th data-bind="foreach: children, attr: { class: 'bq-table-header '+presentationStyles().joined }">
+	<!-- ko template: { name: template } --><!-- /ko -->
+</th>
+
+</script>
+
+<script type="text/html" id="core/template/container/table/tablenavigation">
+<ul class="bq-table-navigation pull-right">
+	<!-- ko with: first -->
+	<button class="btn btn-sm btn-default"
+			type="button"
+			data-bind="click: handleClick, disable: disabled">
+			<i class="fa fa-angle-double-left"></i>
+	</button>
+	<!--  /ko -->
+	<!-- ko with: previous -->
+	<button class="btn btn-sm btn-default"
+			type="button"
+			data-bind="click: handleClick, disable: disabled">
+			<i class="fa fa-angle-left"></i>
+	</button>
+	 <!-- /ko -->
+	<!-- ko with: selector -->
+	<select data-bind="disable: readonly,
+					   bqTooltip: explainText,
+					   options: domain,
+					   optionsText: 'displayValue',
+					   optionsValue: 'value',
+					   value: value">
+	</select>
+	<!--  /ko -->
+	<!-- ko with: next -->
+	<button class="btn btn-sm btn-default"
+			type="button"
+			data-bind="click: handleClick, disable: disabled">
+			<i class="fa fa-angle-right"></i>
+	</button>
+	 <!-- /ko -->
+	<!-- ko with: last -->
+	<button class="btn btn-sm btn-default"
+			type="button"
+			data-bind="click: handleClick, disable: disabled">
+			<i class="fa fa-angle-double-right"></i>
+	</button>
+	<!--  /ko -->
+</ul>
+<div class="clearfix"></div>
+</script>
+
+<script type="text/html" id="core/template/container/table/tablerow">
+<tr data-bind="foreach: children, attr: { class: presentationStyles().joined }">
+	<!-- ko template: { name: template } -->
+	<!-- /ko -->
+</tr>
+</script>
+
+<script type="text/html" id="core/template/container/table/tablesearch">
+<div class="input-group pull-right col-xs-6 col-sm-4 col-md-5 col-lg-4" data-bind="ifnot: disabled">
+    <input type="text" class="form-control" data-bind="bqSearchField: searchTerm, disabled: searchField.readonly, event: { keypress: keyPressed }" />
+    <span class="input-group-btn">
+        <button class="btn btn-default" type="button" data-bind="click: search"><span class="fa fa-search"></span></button>
+    </span>
+</div>
+<div class="clearfix"></div>
+</script>
+
+<script type="text/html" id="core/template/container/table/tablesortedheader">
+<th data-bind="attr: { class: presentationStyles().joined }">
+<span role="button" data-bind="click: handleClick">
+	<span class="pull-left" data-bind="template: { if: content, name: template, data: content }"></span>
+	<span class="pull-left margin">
+	   	<i data-bind="if: sortedAscending">
+	   		<i class="fa fa-chevron-up"></i>
+	   	</i>
+	   	<i data-bind="if: sortedDescending">
+  			<i class="fa fa-chevron-down"></i>
+  		</i>
+	</span>
+	</span>
+</th>
+</script>
+
+<script type="text/html" id="core/template/container/table/tabletextcell">
+<td data-bind="text: displayName, attr: { class: presentationStyles().joined }"></td>
+</script>
+
+<script type="text/html" id="core/template/container/tabs">
+<div>
+	<ul class="nav nav-tabs" data-bind="foreach: tabLabels">
+		<li role="presentation" data-bind="css: { active: $index() === 0 }">
+			<a data-toggle="tab" data-bind="attr: { href: '#tab_' + containerKey }, text: displayName"></a>
+		</li>
+	</ul>
+
+	<!-- Iterate children to create tab containers -->
+	<div class="tab-content" data-bind="foreach: children">
+		<div class="tab-pane" data-bind="attr: { id: 'tab_' + key }, css: { active: $index() === 0 }">
+			<!-- ko template: { name : template} --><!-- /ko -->
+		</div>
+	</div>
+</div>
+</script>
+
+<script type="text/html" id="core/template/container/timeline">
+
+<ul class="timeline" data-bind="foreach: children">
+    <li data-bind=" css: {'timeline-inverted': ($index() % 2) == 1} ">
+		<div class="timeline-badge">
+			<i class="fa" data-bind="css: { 'fa-pencil': $data.properties()['type'] === 'task',
+							 'fa-briefcase': $data.properties()['type'] === 'case',
+							 'fa-file': $data.properties()['type'] === 'document',
+							 'fa-envelope': $data.properties()['type'] === 'messageevent' }"></i>
+		</div>
+
+        <div class="timeline-panel">
+            <div class="timeline-heading">
+				<h4 class="timeline-title" data-bind="text: $data.properties()['actionname']"></h4>
+                <p><small class="text-muted"><i class="fa fa-clock-o"></i> <span data-bind="text: $data.properties()['datetime']"></span></small>
+                </p>
+            </div>
+            <div class="timeline-body">
+				<div class="timeline-entry-details" data-bind="text: $data.properties()['entryname']"></div>
+				<p><small class="text-muted" data-bind="text: $data.properties()['username']"></small></p>
+            </div>
+        </div>
+    </li>
+</ul>
+
+
+
+
+
+</script>
+
+<script type="text/html" id="core/template/container/widget">
+<div class="panel panel-default">
+    <div class="panel-heading" data-bind="widgetBox: {}">
+        <h2 class="panel-title">
+            <!-- ko if: presentationStyles().icon -->
+            <span><i data-bind="attr: { class: presentationStyles().icon }"></i></span>
+            <!-- /ko -->
+            <span data-bind="text: displayName"></span>
+
+        </h2>
+    </div>
+    <div class="panel-body" data-bind="foreach: children">
+        <!-- ko template: { name: template } --><!-- /ko -->
+    </div>
+</div>
+</script>
+
+<script type="text/html" id="core/template/contentitem/contentitem">
+<!-- ko foreach: children -->
+<div data-bind="template: { name: template }, attr: { class: presentationStyles().joined }"></div>
+<!-- /ko -->
+</script>
+
+<script type="text/html" id="core/template/error/notemplate">
+<p class="alert alert-danger">
+    <span class="h4">No template found</span><br><br>
+    <span data-bind="bqHtml: 'name: '+model.name"></span><br>
+    <span data-bind="bqHtml: 'type: '+type "></span><br>
+    <!-- ko if: typeof contentStyle !== 'undefined' -->
+    <span data-bind="bqHtml: 'contentStyle: '+contentStyle "></span><br>
+    <!-- /ko -->
+    <!-- ko ifnot: typeof contentStyle !== 'undefined' -->
+    <span data-bind="bqHtml: 'contentStyle: -' "></span><br>
+    <!-- /ko -->
+    <!-- ko if: presentationStyles().joined.length > 0 -->
+    <span data-bind=" bqHtml: 'presentationStyles: '+presentationStyles().joined"></span><br>
+    <!-- /ko -->
+    <!-- ko if: presentationStyles().joined.length < 1 -->
+    <span data-bind=" bqHtml: 'presentationStyles: -'"></span><br>
+    <!-- /ko -->
+
+</p>
+</script>
+
+<script type="text/html" id="core/template/failedelement/failedelement">
+<div class="alert alert-danger">
+	<button type="button" class="close"><i data-bind="bqStackTrace : 'stacktrace' + key" class="fa fa-chevron-right"></i></button>
+	<span data-bind="text: message"></span>
+</div>
+<pre class="stacktrace" data-bind="attr : { id: 'stacktrace' + key }, text: stackTrace"></pre>
+</script>
+
+<script type="text/html" id="core/template/field/booleanfield">
+<div class="checkbox">
+    <label>
+        <input type="checkbox"data-bind= "checked: valueAsBoolean, bqTooltip: explainText, disable: readonly" />
+    </label>
+</div>
+</script>
+
+<script type="text/html" id="core/template/field/checkboxhorizontal">
+<!-- ko foreach: domain -->
+<label class="checkbox-inline">
+	<input type="checkbox" data-bind="attr : { value : value, name : $parent.key }, checked: $parent.values">
+	<span data-bind="text: displayValue"></span>
+</label>
+<!-- /ko -->
+</script>
+
+<script type="text/html" id="core/template/field/checkboxvertical">
+<!-- ko foreach: domain -->
+<div class="checkbox">
+	<label>
+		<input type="checkbox" data-bind="attr : { value : value, name : $parent.key }, checked: $parent.values">
+		<span data-bind="text: displayValue"></span>
+	</label>
+</div>
+<!-- /ko -->
+</script>
+
+<script type="text/html" id="core/template/field/currency">
+<div class="input-group" data-bind="bqTooltip: explainText">
+	<span class="input-group-addon" ><i class="fa fa-fw">&#128;</i></span>
+	<input class="form-control" type="text" data-bind ="value: value, bqCurrency" />
+</div>
+</script>
+
+<script type="text/html" id="core/template/field/date">
+<div class='input-group date' data-bind="attr: { 'data-date-format': context.session.language.patterns.date  }, bqDatePicker: value, bqTooltip: explainText">
+	<input type='text' class="form-control" data-bind="value: value, attr: { placeholder: context.session.language.patterns.displaydate }"/>
+	<span class="input-group-addon">
+		<span class="fa fa-fw fa-calendar"></span>
+	</span>
+</div>
+
+</script>
+
+<script type="text/html" id="core/template/field/datetime">
+<div class='input-group date' data-bind="attr: { 'data-date-format': context.session.language.patterns.date  }, bqDateTimePicker: value, bqTooltip: explainText">
+	<input type='datetime' class="form-control" data-bind="value: value, attr: { placeholder: context.session.language.patterns.displaydate}" />
+	<span class="input-group-addon"><span class="fa fa-fw fa-clock-o"></span>
+	</span>
+</div>
+
+</script>
+
+<script type="text/html" id="core/template/field/domainmulti">
+<select class="form-control" multiple="multiple" data-bind="disable: readonly, bqTooltip: explainText, options: domain, optionsText: 'displayValue', optionsValue: 'value', selectedOptions: values"></select>
+</script>
+
+<script type="text/html" id="core/template/field/domainsingle">
+<select class="form-control"
+         data-bind="
+         disable: readonly,
+         bqTooltip: explainText,
+         options: domain,
+         optionsText: 'displayValue',
+         optionsValue: 'value',
+         value: value,
+         optionsCaption: ''">
+</select>
+</script>
+
+<script type="text/html" id="core/template/field/field">
+<div class="form-group" data-bind="css: {'has-warning': hasWarning, 'has-error': hasError}">
+	<label class="control-label" data-bind="attr: { for: key }">
+		<span data-bind="text: questionText"></span>
+		<span data-bind="if: required()">*</span>
+	</label>
+	<div class="controls">
+		<!-- ko template: { name: fieldValueTemplate } --><!-- /ko -->
+		<div data-bind="foreach: { data: messages, as: 'message' }">
+			<span class="help-block" data-bind="text: message.text"></span>
+		</div>
+	</div>
+</div>
+
+</script>
+
+<script type="text/html" id="core/template/field/fieldhorizontal">
+<div class="form-group" data-bind="css: {'required':required, 'has-warning': hasWarning, 'has-error': hasError}">
+
+	<label class="control-label col-xs-12 col-sm-4">
+		<!-- ko text: questionText --><!-- /ko -->
+		<span data-bind="if: required()">*</span>
+	</label>
+
+	<div class="col-xs-12 col-sm-5">
+		<!-- ko template: { name: fieldValueTemplate } --><!-- /ko -->
+		<div data-bind="foreach: { data: messages, as: 'message' }">
+			<span class="help-block" data-bind="text: message.text"></span>
+		</div>
+	</div>
+</div>
+
+
+</script>
+
+<script type="text/html" id="core/template/field/filetypefield">
+<i data-bind="attr : { class: 'filetype ' + image() }"></i>
+</script>
+
+<script type="text/html" id="core/template/field/integer">
+<input type="number" class="form-control" data-bind ="value: value, bqTooltip: explainText" />
+</script>
+
+<script type="text/html" id="core/template/field/memo">
+<textarea class="form-control" rows="5" data-bind ="value: value, bqTooltip: explainText"></textarea>
+</script>
+
+<script type="text/html" id="core/template/field/number">
+<input type="text" class="form-control" data-bind ="value: value, bqTooltip: explainText" />
+</script>
+
+<script type="text/html" id="core/template/field/password">
+<input class="form-control" type="password" data-bind ="value: value, bqTooltip: explainText">
+
+</script>
+
+<script type="text/html" id="core/template/field/percentage">
+<div class="input-group" data-bind="bqTooltip: explainText">
+	<input class="form-control" type="text" data-bind ="value: value" />
+	<span class="input-group-addon">
+		<span class="fa fa-fw">&#37;</span>
+	</span>
+</div>
+</script>
+
+<script type="text/html" id="core/template/field/radiohorizontal">
+<!-- ko foreach: domain -->
+<label class="radio-inline">
+	<input type="radio" data-bind="attr : { value : value, name : $parent.key }, checked: $parent.value">
+	<span data-bind="text: displayValue"></span>
+</label>
+<!-- /ko -->
+</script>
+
+<script type="text/html" id="core/template/field/radiovertical">
+<!-- ko foreach: domain -->
+<div class="radio">
+	<label>
+		<input type="radio" data-bind="attr : { value : value, name : $parent.key }, checked: $parent.value">
+		<span data-bind="text: displayValue"></span>
+	</label>
+</div>
+<!-- /ko -->
+</script>
+
+<script type="text/html" id="core/template/field/readonly">
+<div class="form-group">
+	<label class="control-label"><span data-bind="text: questionText"></span></label>
+	<div class="form-control-static">
+		<span data-bind="text: displayValue"></span>
+	</div>
+</div>
+</script>
+
+<script type="text/html" id="core/template/field/readonlyhorizontal">
+<div class="form-group readonly">
+	<label class="control-label col-xs-12 col-sm-4" data-bind="text: questionText"></label>
+	<div class="form-control-static col-xs-12 col-sm-8" data-bind="text: displayValue"></div>
+</div>
+</script>
+
+<script type="text/html" id="core/template/field/readonlyvalue">
+<span data-bind="text: displayValue"></span>
+
+</script>
+
+<script type="text/html" id="core/template/field/text">
+<input type="text" class="form-control" data-bind="value: value, bqTooltip: explainText" />
+</script>
+
+<script type="text/html" id="core/template/field/toggle">
+<input data-bind="bqToggle: value" type="checkbox" />
+</script>
+
+<script type="text/html" id="core/template/field/value">
+<div data-bind="css: {'has-warning': hasWarning, 'has-error': hasError}">
+    <div class="controls">
+        <!-- ko template: { name: fieldValueTemplate } --><!-- /ko -->
+        <div data-bind="foreach: { data: messages, as: 'message' }">
+            <span class="help-block" data-bind="text: message.text"></span>
+        </div>
+    </div>
+</div>
+</script>
+
+<script type="text/html" id="core/template/filedownload/cmis/filedownload-link">
+<div>
+	<a data-bind="attr: { href: url }, text: text"></a>
+</div>
+</script>
+
+<script type="text/html" id="core/template/flowwidget/flowwidget">
+<div class="panel panel-default" data-bind="widget: {}, bqMode: ['widget']">
+	<div class="panel-heading" data-bind="widgetBox: {}">
+		<h2 class="panel-title">
+			<!-- ko if: presentationStyles().icon -->
+			<span><i data-bind="attr: { class: presentationStyles().icon }"></i></span>
+			<!-- /ko -->
+			<span data-bind="text: displayName"></span>
+		</h2>
+	</div>
+	<div class="panel-body">
+		<!-- ko if: session() && session().page() -->
+		<div data-bind="template: { name: template, data: session().page() }"></div>
+		<!-- /ko -->
+
+		<!-- ko if: session() == null || session().page() == null -->
+		<div class="text-center">
+            <img data-bind="attr: { src: context.configuration.resourceUri + context.configuration.themePath + 'img/loading.gif' }">
+		</div>
+		<!-- /ko -->
+	</div>
+</div>
+</script>
+
+<script type="text/html" id="core/template/image/image">
+<img data-bind="attr: { src: url, height: height, width: width, class: presentationStyles().joined }" />
+</script>
+
+<script type="text/html" id="core/template/link/link">
+<a data-bind="attr: { href: url, class: presentationStyles().joined }, text: text"></a>
+</script>
+
+<script type="text/html" id="core/template/notification/notification-modal">
+<div class="modal fade" data-bind="bqModal: message()">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" data-bind="text: title()"></h4>
+            </div>
+            <div class="modal-body">
+                <p data-bind="text: message()"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</script>
+
+<script type="text/html" id="core/template/page/dashboardpage">
+<div class="container-fluid dashboard">
+    <div class="row">
+        <div data-bind="foreach: { data: messages, as: 'message' }">
+            <div class="alert alert-danger" data-bind="text: message.text"></div>
+        </div>
+    </div>
+
+    <!-- ko foreach: children -->
+    <!-- ko template: { name: template } --><!-- /ko -->
+    <!-- /ko -->
+
+</div>
+</script>
+
+<script type="text/html" id="core/template/page/page">
+<div class="container">
+    <div class="row bq-header">
+        <div class="col-xs-9">
+            <h1 data-bind="visible: displayName, html: displayName"></h1>
+        </div>
+        <div class="col-xs-3 text-right">
+            <div class="logo pull-right" alt="Blueriq Runtime">
+                <img class="img-responsive"
+                     data-bind="attr:{src: context.configuration.resourceUri+context.configuration.themePath+'img/logo.png'}"/>
+            </div>
+        </div>
+    </div>
+
+    <div id="main" class="row">
+        <form onsubmit="return false" class="col-xs-12">
+            <div data-bind="foreach: { data: messages, as: 'message' }">
+                <div class="alert alert-danger" data-bind="text: message.text"></div>
+            </div>
+            <div data-bind="foreach: children">
+                <!-- ko template: { name: template } --><!-- /ko -->
+            </div>
+        </form>
+    </div>
+
+    <div class="row" id="footer">
+        <div class="col-xs-12 col-md-6">
+            <h2>Blueriq B.V.</h2>
+            <span class="fa fa-phone"></span> +31 (0)73 6450 467<br>
+            <span class="fa fa-globe"></span> www.blueriq.com<br>
+            <span class="fa fa-envelope"></span> support@blueriq.com
+        </div>
+        <div class="logo col-xs-12 col-md-6 pull-right text-right">
+            <img data-bind="attr:{src: context.configuration.resourceUri+context.configuration.themePath+'img/footer.png'}">
+        </div>
+    </div>
+</div>
+</script>
+
+<script type="text/html" id="core/template/page/widgetpage">
+<div data-bind="foreach: { data: messages, as: 'message' }">
+	<div class="alert alert-danger" data-bind="text: message.text"></div>
+</div>
+<div data-bind="foreach: children">
+	<!-- ko template: { name: template } --><!-- /ko -->
+</div>
+</script>
+
+<script type="text/html" id="core/template/statistic/statistic">
+<div data-bind="attr: { class: 'statistic ' + presentationStyles().joined }">
+  <p style="font-size: 40px;" data-bind="bqStatistic: 'unusedParam', data: statistic" class="odometer"></p>
+</div>
+</script>
+
+<script type="text/html" id="core/template/statistic/visualization">
+<div data-bind="bqVisualization: {type:style, data: statistics}, title: displayName" class="visualization col-xs-12 col-sm-6 col-md-4">
+	<label data-bind="text: displayName"></label>
+	<div class="chart">
+		<canvas style="width:200px; height:200px"></canvas>
+	</div>
+</div>
+</script>
+
+<script type="text/html" id="core/template/statistic/visualizationwithlegend">
+<div data-bind="bqVisualization: {type:style, data: statistics}, title: displayName" class="visualization col-xs-12 col-sm-6 col-md-4">
+	<label data-bind="text: displayName"></label>
+	<div class="chart">
+		<canvas style="width:200px; height:200px"></canvas>
+	</div>
+	<div class="legendwrapper">
+		<div class="placeholder"></div>
+	</div>
+</div>
+</script>
+
+<script type="text/html" id="core/template/textitem/authenticateduser">
+<a class="navbar-text"><i class="fa fa-user"></i> <span data-bind="text: plainText"></span></a>
+</script>
+
+<script type="text/html" id="core/template/textitem/danger">
+<p data-bind="bqHtml: plainText()" class="alert alert-danger"></p>
+</script>
+
+<script type="text/html" id="core/template/textitem/info">
+<p data-bind="bqHtml: plainText()" class="alert alert-info"></p>
+</script>
+
+<script type="text/html" id="core/template/textitem/label">
+<span data-bind='text: plainText' class='label label-info'></span>
+
+
+</script>
+
+<script type="text/html" id="core/template/textitem/logout">
+<a class="navbar-text" data-bind="attr: { href: $data.context.configuration.baseUri + $data.context.subscriptionId + '/api/authentication/logout' }"><span class="fa fa-log-out"></span> <span data-bind="text: plainText"></span></a>
+</script>
+
+<script type="text/html" id="core/template/textitem/node">
+<!-- ko if: nodeType === 'text' -->
+	<span data-bind="bqHtml: text"></span>
+<!-- /ko -->
+
+<!-- ko if: nodeType === 'value' -->
+	<!-- ko foreach: values -->
+		<span data-bind="bqHtml: $data"></span>
+	<!-- /ko -->
+<!-- /ko -->
+
+<!-- ko if: nodeType === 'style' -->
+	<span data-bind="attr: { class: presentationStyle }">
+		<!-- ko template: { name: 'themes/bootstrap3/template/textitem/node', foreach: nodes } --><!-- /ko -->
+	</span>
+<!-- /ko -->
+</script>
+
+<script type="text/html" id="core/template/textitem/plaintext">
+<span data-bind="bqHtml: plainText()"></span>
+</script>
+
+<script type="text/html" id="core/template/textitem/styled">
+<p data-bind="foreach: nodes, attr: { class: 'text-item ' + presentationStyles().joined  }">
+	<span data-bind="template: { name: 'themes/bootstrap3/template/textitem/node' }"></span>
+</p>
+</script>
+
+<script type="text/html" id="core/template/textitem/success">
+<p data-bind="bqHtml: plainText()" class="alert alert-success"></p>
+</script>
+
+<script type="text/html" id="core/template/textitem/textitem">
+<p data-bind="bqHtml: plainText()"></p>
+</script>
+
+<script type="text/html" id="core/template/textitem/warning">
+<p data-bind="bqHtml: plainText()" class="alert alert-warning"></p>
+</script>
+
+<script type="text/html" id="core/template/unknown/unknown">
+ 
+</script>
+
+<script type="text/html" id="core/template/webfileupload/webfileupload">
+<div>
+	<h2 data-bind="visible: displayName, text: displayName"></h2>
+	
+	<div data-bind="if: !browserSupported">
+		<pre>This component is not supported by your browser, please use Chrome 7+, Firefox 4.0, IE 10+, Safari 5+</pre>
+	</div>
+	
+	<div data-bind="if: browserSupported">
+		<div>
+	        <input type="file" data-bind="file: file, fileObjectURL: fileObjectURL"/>
+	    </div>
+	    <button type="button" class="btn" data-bind="click: upload"><span data-bind="text: buttonText"></span></button>
+	       
+	   <div data-bind="if: fileUploadTextItem">
+	      <div data-bind="template: { name: context.templateFactory.getTemplate, data: fileUploadTextItem }"></div>
+	   </div>
+   </div>
+</div>
+</script>
+

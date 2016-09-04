@@ -1,0 +1,33 @@
+<h2 data-bind="visible: displayName, text: displayName"></h2>
+<div data-bind="attr: { class: 'btn-group ' + presentationStyles().joined }, foreach: children">
+
+    <!-- ko if: type == 'presentationStyles().icon' -->
+    <i data-bind="attr: { class: 'button-icon ' + presentationStyles().icon }"></i>
+    <!-- /ko -->
+
+    <!-- ko if: type == 'button' -->
+
+    <button type="button"
+            class="btn"
+            data-bind=" click: handleClick,
+			   				disable: disabled,
+			   				text: caption,
+			   				css: { 'btn-primary highlighted': presentationStyles().highlighted,
+			   						'btn-default': !presentationStyles().highlighted}"></button>
+
+    <!-- /ko -->
+    <!-- ko if: type == 'container' -->
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle"
+                data-toggle="dropdown" data-bind="css: {'btn-primary highlighted': presentationStyles().highlighted}">
+            <span data-bind="text: displayName"></span>&nbsp;
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" data-bind="foreach: $data.children">
+            <li style="text-align: center;">
+                <a href="#" data-bind="text: caption, click: handleClick"></a>
+            </li>
+        </ul>
+    </div>
+    <!-- /ko -->
+</div>

@@ -1,0 +1,44 @@
+<script type="text/html" id="al_search_domain_popover">
+	<div data-bind>
+		<div class="checkbox" data-bind="visible: showAllVisible">
+			<label>
+				<input type="checkbox" data-bind="checked: showAll" >
+				<span data-bind="text: selectAllText">Select All</span>
+			</label>
+		</div>
+	</div>
+
+	<div data-bind="foreach: valueList">
+    	<div class="checkbox">
+			<label>
+				<input type="checkbox" data-bind="checked: checked"><span data-bind="text: displayValue"></span>
+			</label>
+		</div>
+	</div>
+
+	<div class="checkbox" data-bind="visible: !simple()">
+		<label>
+			<input type="checkbox" data-bind="checked: showUnknown">
+			<span data-bind="text: showUnknownText">Unknown</span>
+		</label>
+	</div>
+</script>
+<div role="button" class="search-filter values-search-filter">
+	<i data-bind="
+	popover: {
+		template: 'al_search_domain_popover',
+		title: title,
+		placement: 'top',
+		onBeforeShow: onBeforeShow,
+		onHide: onHide,
+	  	onInit: onInit
+	}, css: {
+		'search-filter-trigger': true,
+		'fa fa-filter': true,
+		'muted': !iconActive()
+	}, event: {
+		mouseover: handleMouseOver,
+		mouseout: handleMouseOut
+	}
+"></i>
+</div>

@@ -1,0 +1,21 @@
+<div class="panel panel-default" data-bind="widget: {}, bqMode: ['widget']">
+	<div class="panel-heading" data-bind="widgetBox: {}">
+		<h2 class="panel-title">
+			<!-- ko if: presentationStyles().icon -->
+			<span><i data-bind="attr: { class: presentationStyles().icon }"></i></span>
+			<!-- /ko -->
+			<span data-bind="text: displayName"></span>
+		</h2>
+	</div>
+	<div class="panel-body">
+		<!-- ko if: session() && session().page() -->
+		<div data-bind="template: { name: template, data: session().page() }"></div>
+		<!-- /ko -->
+
+		<!-- ko if: session() == null || session().page() == null -->
+		<div class="text-center">
+            <img data-bind="attr: { src: context.configuration.resourceUri + context.configuration.themePath + 'img/loading.gif' }">
+		</div>
+		<!-- /ko -->
+	</div>
+</div>

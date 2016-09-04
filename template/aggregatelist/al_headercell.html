@@ -1,0 +1,20 @@
+<th data-bind="attr: { 'class': 'bq-table-header bq-table-header-sortable '+presentationStyles().joined }">
+	<div role="button" data-bind="click: handleClick">
+		<div class="pull-left" data-bind="if: content">
+			<div data-bind="template: { name: template, data: content }"></div>
+		</div>
+		<div class="pull-left margin">
+		   	<i data-bind="if: sortedAscending">
+		   		<i class="fa fa-chevron-up"></i>
+		   	</i>
+		   	<i data-bind="if: sortedDescending">
+		 		<i class="fa fa-chevron-down"></i>
+		 	</i>
+		</div>
+	</div>
+	<div class="pull-left margin" data-bind="if: searchViewModel">
+		<!-- ko template: { name: template, data: searchViewModel } -->
+		<!-- /ko -->
+	</div>
+
+</th>

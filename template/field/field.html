@@ -1,0 +1,12 @@
+<div class="form-group" data-bind="css: {'has-warning': hasWarning, 'has-error': hasError}">
+	<label class="control-label" data-bind="attr: { for: key }">
+		<span data-bind="text: questionText"></span>
+		<span data-bind="if: required()">*</span>
+	</label>
+	<div class="controls">
+		<!-- ko template: { name: fieldValueTemplate } --><!-- /ko -->
+		<div data-bind="foreach: { data: messages, as: 'message' }">
+			<span class="help-block" data-bind="text: message.text"></span>
+		</div>
+	</div>
+</div>

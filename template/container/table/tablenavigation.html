@@ -1,0 +1,40 @@
+<ul class="bq-table-navigation pull-right">
+	<!-- ko with: first -->
+	<button class="btn btn-sm btn-default"
+			type="button"
+			data-bind="click: handleClick, disable: disabled">
+			<i class="fa fa-angle-double-left"></i>
+	</button>
+	<!--  /ko -->
+	<!-- ko with: previous -->
+	<button class="btn btn-sm btn-default"
+			type="button"
+			data-bind="click: handleClick, disable: disabled">
+			<i class="fa fa-angle-left"></i>
+	</button>
+	 <!-- /ko -->
+	<!-- ko with: selector -->
+	<select data-bind="disable: readonly,
+					   bqTooltip: explainText,
+					   options: domain,
+					   optionsText: 'displayValue',
+					   optionsValue: 'value',
+					   value: value">
+	</select>
+	<!--  /ko -->
+	<!-- ko with: next -->
+	<button class="btn btn-sm btn-default"
+			type="button"
+			data-bind="click: handleClick, disable: disabled">
+			<i class="fa fa-angle-right"></i>
+	</button>
+	 <!-- /ko -->
+	<!-- ko with: last -->
+	<button class="btn btn-sm btn-default"
+			type="button"
+			data-bind="click: handleClick, disable: disabled">
+			<i class="fa fa-angle-double-right"></i>
+	</button>
+	<!--  /ko -->
+</ul>
+<div class="clearfix"></div>

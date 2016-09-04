@@ -1,0 +1,13 @@
+<th data-bind="attr: { class: presentationStyles().joined }">
+<span role="button" data-bind="click: handleClick">
+	<span class="pull-left" data-bind="template: { if: content, name: template, data: content }"></span>
+	<span class="pull-left margin">
+	   	<i data-bind="if: sortedAscending">
+	   		<i class="fa fa-chevron-up"></i>
+	   	</i>
+	   	<i data-bind="if: sortedDescending">
+  			<i class="fa fa-chevron-down"></i>
+  		</i>
+	</span>
+	</span>
+</th>

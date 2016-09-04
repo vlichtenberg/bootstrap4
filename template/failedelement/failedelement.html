@@ -1,0 +1,5 @@
+<div class="alert alert-danger">
+	<button type="button" class="close"><i data-bind="bqStackTrace : 'stacktrace' + key" class="fa fa-chevron-right"></i></button>
+	<span data-bind="text: message"></span>
+</div>
+<pre class="stacktrace" data-bind="attr : { id: 'stacktrace' + key }, text: stackTrace"></pre>

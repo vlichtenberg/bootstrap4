@@ -1,0 +1,10 @@
+<ul class="breadcrumb" data-bind="foreach: { data: children, as: 'crumb'}">
+	<li data-bind="css: { active: crumb.properties().isCurrent, disabled: !crumb.properties().isPassed && !crumb.properties().isCurrent}">
+		<span class="bq-inline" data-bind="if: crumb.properties().isPassed">
+			<a href="#" data-bind="click: handleClick, text: crumb.properties().displayName"></a>
+		</span>
+		<span data-bind="ifnot: crumb.properties().isPassed">
+			<span data-bind="text: crumb.properties().displayName"></span>
+		</span>						
+	</li>
+</ul>

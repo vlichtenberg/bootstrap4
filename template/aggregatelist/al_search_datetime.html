@@ -1,0 +1,86 @@
+<script type="text/html" id="al_search_datetime_popover">
+	<div class="date-search-popover-content clearfix">
+		<div class="date-search-menu pull-left">
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" data-bind="checked: fromChecked, disable: showAll() && !simple()" >
+					<span data-bind="click: handleFromClick, css: {active: fromVisible}">From</span>
+				</label>
+				<i class="fa fa-angle-right pull-right"></i>
+			</div>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" data-bind="checked: toChecked, disable: showAll() && !simple()" >
+					<span data-bind="click: handleToClick, css: {active: toVisible}">To</span>
+				</label>
+				<i class="fa fa-angle-right pull-right"></i>
+			</div>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" data-bind="checked: onChecked, disable: showAll() && !simple()" >
+					<span data-bind="click: handleOnClick, css: {active: onVisible}">On</span>
+				</label>
+				<i class="fa fa-angle-right pull-right"></i>
+			</div>
+			<div class="checkbox show-all" data-bind="visible: !simple()">
+				<label>
+					<input type="checkbox" data-bind="checked: showAll">
+					<span data-bind="text: showAllText">Show All</span>
+				</label>
+			</div>
+			<div class="checkbox" data-bind="visible: !simple()">
+				<label>
+					<input type="checkbox" data-bind="checked: showUnknown">
+					<span data-bind="text: showUnknownText">Show Unknown</span>
+				</label>
+			</div>
+		</div>
+
+		<div class="pull-right date-search-picker" data-bind="visible: toVisible">
+			<div data-bind="bqInlineDatePicker: {value: toValue}"></div>
+			<div class="date-search-today" data-bind="text: nowText, click: handleNow">Now</div>
+			<div class="time-picker">
+				<input type="text" class="hour" maxlength="2" data-bind="value: toHours">
+				<span class="separator">:</span>
+				<input type="text" class="minute" maxlength="2" data-bind="value: toMinutes">
+			</div>
+		</div>
+
+		<div class="pull-right date-search-picker" data-bind="visible: fromVisible">
+			<div data-bind="bqInlineDatePicker: {value: fromValue}"></div>
+			<div class="date-search-today" data-bind="text: nowText, click: handleNow">Now</div>
+			<div class="time-picker">
+				<input type="text" class="hour" maxlength="2" data-bind="value: fromHours">
+				<span class="separator">:</span>
+				<input type="text" class="minute" maxlength="2" data-bind="value: fromMinutes">
+			</div>
+		</div>
+
+		<div class="pull-right date-search-picker" data-bind="visible:onVisible">
+			<div data-bind="bqInlineDatePicker: {value: onValue}"></div>
+			<div class="date-search-today" data-bind="text: todayText, click: handleToday">Today</div>
+		</div>
+
+</script>
+
+<div role="button" class="search-filter date-search-filter">
+<i data-bind="
+	popover: {
+		template: 'al_search_datetime_popover',
+	  	title: title,
+	  	placement: 'top',
+	  	onBeforeShow: onBeforeShowDateTime,
+	  	onHide: onHide,
+	  	onInit: onInit
+	}, css: {
+		'search-filter-trigger': true,
+		'fa fa-filter': true,
+		'muted': !iconActive()
+	}, event: {
+		mouseover: handleMouseOver,
+		mouseout: handleMouseOut
+	}
+"></i>
+</div>
+
+

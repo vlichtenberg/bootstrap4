@@ -1,0 +1,21 @@
+<h2 data-bind="visible: displayName, text: displayName"></h2>
+<div class="commentlist" data-bind="foreach: children">
+	<div class="commentlist-entry">
+		<div class="commentlist-entry-details">
+			<span class="commentlist-entry-details-username" data-bind="text: $data.properties()['username']"></span>
+			<span class="commentlist-entry-details-title" data-bind="text: $data.properties()['title']"></span>
+			<span class="commentlist-entry-details-date pull-right" data-bind="text: $data.properties()['date']"></span>
+		</div>	
+		<div class="commentlist-entry-body">
+			<!-- ko if: $parent.shouldResize($data.properties()['comment']) -->				
+				<span class="clickable-comment" data-bind="click: $parent.toggleText">
+					<span class="comment shortComment" data-bind="text: $parent.getShortComment($data.properties()['comment'])"></span>
+					<span class="comment totalComment" style="display: none;" data-bind="bqHtml: $data.properties()['comment']"></span>
+				</span>		
+			<!-- /ko -->
+			<!-- ko ifnot: $parent.shouldResize($data.properties()['comment']) -->
+				<span class="comment simpleComment" data-bind="text: $data.properties()['comment']"></span>											
+			<!-- /ko -->
+		</div>													
+	</div>
+</div>

@@ -1,0 +1,43 @@
+	<script type="text/html" id="al_seach_text_popover">
+		<div class="input-prepend input-append">
+			<span class="add-on" data-bind="click: sendNotification">
+				<i class="fa fa-search"></i>
+			</span>
+			<input class="searchField" type="text" class="col-xs-12" data-bind="value: text, hasFocus: textFocused, valueUpdate: 'afterkeydown', event: {'keyup' : handleKeyUp}">
+			<span class="add-on" data-bind="event: { mouseover: clearButtonHovered, mouseout: clearButtonNotHovered, click: handleClearButton }">
+				<i class="fa fa-times"></i>
+			</span>
+		</div>
+		<div class="checkbox show-all" data-bind="visible: !simple()">
+			<label>
+				<input type="checkbox" data-bind="checked: showAll">
+				<span data-bind="text: showAllText">Show All</span>
+			</label>
+		</div>
+		<div class="checkbox" data-bind="visible: !simple()">
+			<label>
+				<input type="checkbox" data-bind="checked: showUnknown">
+				<span data-bind="text: showUnknownText">Show Unknown</span>
+			</label>
+		</div>
+	</script>
+<div role="button" class="search-filter text-search-filter">
+	<i data-bind="
+		popover: {
+			template: 'al_seach_text_popover',
+			title: title,
+			placement: 'top',
+			onBeforeShow: onBeforeShow,
+			onShow: onShow,
+			onHide: onHide,
+			onInit: onInit
+		}, css: {
+			'search-filter-trigger': true,
+			'fa fa-filter': true,
+			'muted': !iconActive()
+		}, event: {
+			mouseover: handleMouseOver,
+			mouseout: handleMouseOut
+		}
+	"></i>
+</div>

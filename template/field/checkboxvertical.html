@@ -1,0 +1,8 @@
+<!-- ko foreach: domain -->
+<div class="checkbox">
+	<label>
+		<input type="checkbox" data-bind="attr : { value : value, name : $parent.key }, checked: $parent.values">
+		<span data-bind="text: displayValue"></span>
+	</label>
+</div>
+<!-- /ko -->

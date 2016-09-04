@@ -1,0 +1,18 @@
+<div>
+	<h2 data-bind="visible: displayName, text: displayName"></h2>
+	
+	<div data-bind="if: !browserSupported">
+		<pre>This component is not supported by your browser, please use Chrome 7+, Firefox 4.0, IE 10+, Safari 5+</pre>
+	</div>
+	
+	<div data-bind="if: browserSupported">
+		<div>
+	        <input type="file" data-bind="file: file, fileObjectURL: fileObjectURL"/>
+	    </div>
+	    <button type="button" class="btn" data-bind="click: upload"><span data-bind="text: buttonText"></span></button>
+	       
+	   <div data-bind="if: fileUploadTextItem">
+	      <div data-bind="template: { name: context.templateFactory.getTemplate, data: fileUploadTextItem }"></div>
+	   </div>
+   </div>
+</div>

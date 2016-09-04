@@ -1,0 +1,54 @@
+<div>
+	<h2 data-bind="visible: displayName, text: displayName"></h2>
+
+	<div class="bq-fileupload" data-bind="bqFileUpload: files,
+														  url: url,
+														  allowedExtensions: allowedExtensions,
+														  maxFileSize: maxFileSize,
+														  singleFileMode: singleFileMode,
+														  fileSizeDescription: fileSizeDescription,
+														  extensionDescription: extensionDescription,
+														  fileSizeValidationMessage: fileSizeValidationMessage,
+														  extensionValidationMessage: extensionValidationMessage,
+														  singleUploadLabel: singleUploadLabel,
+														  multiUploadLabel: multiUploadLabel,
+														  uploadStartHandler: uploadStartHandler,
+														  uploadDoneHandler: uploadDoneHandler,
+														  progressPercentageHandler: progressPercentageHandler">
+		<div class="dropzone">
+			<span class="btn fileinput-button btn-link">
+				<i class="button-icon fa fa-plus"></i>
+				<span class="fileUploadLabel"></span>
+				<input class="fileUploadInput" type="file"/>
+			</span>
+		</div>
+		<p class="muted">
+			<small class="fileUploadDescription"></small>
+		</p>
+		<!-- ko if: uploadProgress() -->
+		<div class="progress">
+			<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" data-bind="style: { width: uploadProgress }, aria-valuenow: uploadProgress">
+				<span class="sr-only">40% Complete (success)</span>
+			</div>
+		</div>
+
+		<!-- /ko -->
+
+		<!-- ko if: invalidFiles().length > 0 -->
+		<table class="table table-striped">
+			<caption class="text-error fileupload-table-caption" data-bind="text: uploadFailedMessage"></caption>
+		    <tbody data-bind="foreach: invalidFiles">
+			    <tr>
+			   	 	<td><i class="fa fa-file"></i></td>
+		   			<td class="fileInfo"><span data-bind="text: name"></span> (<span data-bind="text: size"></span>)</td>
+		    		<td class="fileError"><span data-bind="text: errorMessage" class="text-error"></span></td>
+			    </tr>
+		    </tbody>
+		</table>
+		<!-- /ko -->
+
+	    <div data-bind="if: serverErrorMessagesContainer">
+	    	<div data-bind="template: { name: template, data: serverErrorMessagesContainer }"></div>
+	    </div>
+	</div>
+</div>

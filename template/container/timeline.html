@@ -1,0 +1,27 @@
+
+<ul class="timeline" data-bind="foreach: children">
+    <li data-bind=" css: {'timeline-inverted': ($index() % 2) == 1} ">
+		<div class="timeline-badge">
+			<i class="fa" data-bind="css: { 'fa-pencil': $data.properties()['type'] === 'task',
+							 'fa-briefcase': $data.properties()['type'] === 'case',
+							 'fa-file': $data.properties()['type'] === 'document',
+							 'fa-envelope': $data.properties()['type'] === 'messageevent' }"></i>
+		</div>
+
+        <div class="timeline-panel">
+            <div class="timeline-heading">
+				<h4 class="timeline-title" data-bind="text: $data.properties()['actionname']"></h4>
+                <p><small class="text-muted"><i class="fa fa-clock-o"></i> <span data-bind="text: $data.properties()['datetime']"></span></small>
+                </p>
+            </div>
+            <div class="timeline-body">
+				<div class="timeline-entry-details" data-bind="text: $data.properties()['entryname']"></div>
+				<p><small class="text-muted" data-bind="text: $data.properties()['username']"></small></p>
+            </div>
+        </div>
+    </li>
+</ul>
+
+
+
+

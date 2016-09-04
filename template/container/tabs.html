@@ -1,0 +1,14 @@
+<div>
+	<ul class="nav nav-tabs" data-bind="foreach: tabLabels">
+		<li role="presentation" data-bind="css: { active: $index() === 0 }">
+			<a data-toggle="tab" data-bind="attr: { href: '#tab_' + containerKey }, text: displayName"></a>
+		</li>
+	</ul>
+
+	<!-- Iterate children to create tab containers -->
+	<div class="tab-content" data-bind="foreach: children">
+		<div class="tab-pane" data-bind="attr: { id: 'tab_' + key }, css: { active: $index() === 0 }">
+			<!-- ko template: { name : template} --><!-- /ko -->
+		</div>
+	</div>
+</div>

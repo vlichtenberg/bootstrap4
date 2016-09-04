@@ -1,0 +1,12 @@
+<div class="container-fluid dashboard">
+    <div class="row">
+        <div data-bind="foreach: { data: messages, as: 'message' }">
+            <div class="alert alert-danger" data-bind="text: message.text"></div>
+        </div>
+    </div>
+
+    <!-- ko foreach: children -->
+    <!-- ko template: { name: template } --><!-- /ko -->
+    <!-- /ko -->
+
+</div>

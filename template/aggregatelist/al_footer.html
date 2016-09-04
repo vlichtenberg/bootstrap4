@@ -1,0 +1,52 @@
+<div class="bq-paging clearfix">
+	<div class="bq-paging-navigation pull-right">
+
+		<!-- ko with: first -->
+		<button class="btn btn-sm btn-default"
+				type="button"
+				data-bind="click: handleClick, disable: disabled">
+				<i class="fa fa-angle-double-left"></i>
+		</button>
+		<!--  /ko -->
+		<!-- ko with: previous -->
+		<button class="btn btn-sm btn-default"
+				type="button"
+				data-bind="click: handleClick, disable: disabled">
+				<i class="fa fa-angle-left"></i>
+		</button>
+		<!--  /ko -->
+
+		<span>
+			<span data-bind="text: selectorPrefix.text"></span>
+			<!-- ko with: selectorField -->
+			<input type="text" class="bq-page-number" data-bind="value: value">
+			<!--  /ko -->
+			<span data-bind="text: selectorSuffix.text"></span>
+		</span>
+
+		<!-- ko with: next -->
+		<button class="btn btn-sm btn-default"
+				type="button"
+				data-bind="click: handleClick, disable: disabled">
+				<i class="fa fa-angle-right"></i>
+		</button>
+		<!--  /ko -->
+		<!-- ko with: last -->
+		<button class="btn btn-sm btn-default"
+				type="button"
+				data-bind="click: handleClick, disable: disabled">
+				<i class="fa fa-angle-double-right"></i>
+		</button>
+		<!--  /ko -->
+
+		<!-- ko with: clear -->
+		<button class="btn btn-sm btn-default"
+			type="button"
+			data-bind="click: handleClick, disable: disabled, bqIconTooltip : caption">
+			<i class="fa fa-ban"></i>
+		</button>
+		<!-- /ko -->
+
+	</div>
+	<div class="bq-paging-feedback" data-bind="if: feedback"><!-- ko text: feedback.text --><!-- /ko --></span></div>
+</div>

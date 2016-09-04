@@ -1,0 +1,8 @@
+<button type="button" class="btn" data-bind="click: handleClick, disable: disabled, 
+css: {	'btn-default': !presentationStyles().button_primary && !presentationStyles().button_link, 
+		'btn-primary': presentationStyles().button_primary,
+		'btn-link': presentationStyles().button_link,
+		'pull-right': presentationStyles().align_right }">
+	<i data-bind="attr: { class: 'button-icon ' + presentationStyles().icon }"></i>
+	<!-- ko text: caption --><!-- /ko -->
+</button>

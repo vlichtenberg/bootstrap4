@@ -1,0 +1,15 @@
+<!-- ko if: nodeType === 'text' -->
+	<span data-bind="bqHtml: text"></span>
+<!-- /ko -->
+
+<!-- ko if: nodeType === 'value' -->
+	<!-- ko foreach: values -->
+		<span data-bind="bqHtml: $data"></span>
+	<!-- /ko -->
+<!-- /ko -->
+
+<!-- ko if: nodeType === 'style' -->
+	<span data-bind="attr: { class: presentationStyle }">
+		<!-- ko template: { name: 'themes/bootstrap3/template/textitem/node', foreach: nodes } --><!-- /ko -->
+	</span>
+<!-- /ko -->

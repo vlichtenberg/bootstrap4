@@ -1,0 +1,6 @@
+<div data-bind="attr: { class: 'pie-chart ' + presentationStyles().joined }">
+    <div data-bind="bqEasyPieChart: (properties().value / properties().maxvalue * 100), style: properties().color" class="easyPieChart" data-percent="0">
+        <div class="pie-chart-value" data-bind="text: properties().value"></div>
+    </div>
+    <div class="pie-chart-caption">&nbsp;<span data-bind="text: displayName"></span></div>
+</div>
