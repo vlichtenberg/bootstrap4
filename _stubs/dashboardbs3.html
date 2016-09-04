@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>
+        Bootstrap 4
+    </title>
+    <meta name="description" content="">
+
+    <script type="text/javascript">
+        var stub = {
+            "elements": [{
+                "key": "P660-C2-C0-C0-C0-C2-C3-TI0",
+                "name": "PresentationstyleButtonPrimary",
+                "properties": {},
+                "nodes": [{"text": "button_primary", "nodeType": "text"}],
+                "plainText": "button_primary",
+                "type": "textitem",
+                "styles": ["text_label"]
+            }, {
+                "key": "P660-C2-C0-C0-C0-C2-C3-TI1",
+                "name": "PresentationStyleIconHome",
+                "properties": {},
+                "nodes": [{"text": "icon_home", "nodeType": "text"}],
+                "plainText": "icon_home",
+                "type": "textitem",
+                "styles": ["text_label"]
+            }, {
+                "key": "P660-C2-C0-C2-C0",
+                "name": "Breadcrumb",
+                "properties": {},//{"info": "WidgetInfo_Breadcrumb"},
+                "children": [],
+                "displayName": "Breadcrumb",
+                "contentStyle": "",//"dashboard_flowwidget",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C1-C0-C1",
+                "name": "DashboardNewContainer",
+                "properties": {},
+                "children": ["P660-C1-C0-C1-B0"],
+                "displayName": "New",
+                "contentStyle": "container",
+                "type": "container",
+                "styles": ["icon_plus"]
+            }, {
+                "key": "P660-C2-C0-C1-C0",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C1-C0-C0"],
+                "displayName": "Tabs",
+                "contentStyle": "dashboard_widget",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C1-C0-C1-B0",
+                "name": "Case",
+                "properties": {},
+                "disabled": false,
+                "refresh": false,
+                "caption": "Case",
+                "type": "button",
+                "styles": ["icon_user"]
+            }, {
+                "key": "P660-C2",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0"],
+                "displayName": null,
+                "contentStyle": "dashboard_body",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C1-C0-B8",
+                "name": "Textitems",
+                "properties": {},
+                "disabled": false,
+                "refresh": false,
+                "caption": "Textitems",
+                "type": "button",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C0-C0-C3-C1-TI0",
+                "name": "PressentationstyleButtonLink",
+                "properties": {},
+                "nodes": [{"text": "button_link", "nodeType": "text"}],
+                "plainText": "button_link",
+                "type": "textitem",
+                "styles": ["text_label"]
+            }, {
+                "key": "P660-C2-C0-C1-C0-C0-C2",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C1-C0-C0-C2-C0", "P660-C2-C0-C1-C0-C0-C2-C1"],
+                "displayName": null,
+                "contentStyle": "tabs",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C0-C0-C1-C2-TI0",
+                "name": "PresentationStyleIconHome",
+                "properties": {},
+                "nodes": [{"text": "icon_home", "nodeType": "text"}],
+                "plainText": "icon_home",
+                "type": "textitem",
+                "styles": ["text_label"]
+            }, {
+                "key": "P660-C1-C0-B5",
+                "name": "InputFields",
+                "properties": {},
+                "disabled": false,
+                "refresh": false,
+                "caption": "Inputs",
+                "type": "button",
+                "styles": ["icon_cog"]
+            }, {
+                "key": "P660-C2-C0-C0-C0-TI0",
+                "name": "ExplanationButtons",
+                "properties": {},
+                "nodes": [{
+                    "text": "Default buttons needs no styling, except for placing an icon in the text. If you want a primary buttons or a link then you can use the styles displayed in the buttons below.",
+                    "nodeType": "text"
+                }],
+                "plainText": "Default buttons needs no styling, except for placing an icon in the text. If you want a primary buttons or a link then you can use the styles displayed in the buttons below.",
+                "type": "textitem",
+                "styles": []
+            }, {
+                "key": "P660-C1-C0-B4",
+                "name": "Tasks",
+                "properties": {},
+                "disabled": false,
+                "refresh": false,
+                "caption": "Tasks",
+                "type": "button",
+                "styles": ["icon_pencil"]
+            }, {
+                "key": "P660-C1",
+                "name": "DashboardMenu",
+                "properties": {},
+                "children": ["P660-C1-C0"],
+                "displayName": null,
+                "contentStyle": "dashboard_menu",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C1-C0-B7",
+                "name": "ContainerType",
+                "properties": {},
+                "disabled": false,
+                "refresh": false,
+                "caption": "ContainerType",
+                "type": "button",
+                "styles": []
+            }, {
+                "key": "P660-C0",
+                "name": "DashboardHeader",
+                "properties": {},
+                "children": ["P660-C0-TI0", "P660-C0-TI1"],
+                "displayName": "Blueriq",
+                "contentStyle": "dashboard_header",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C1-C0-B6",
+                "name": "Navigation",
+                "properties": {},
+                "disabled": false,
+                "refresh": false,
+                "caption": "Navigation",
+                "type": "button",
+                "styles": ["highlighted"]
+            }, {
+                "key": "P660-C2-C0-C0-C0-C2-C0-B1",
+                "name": "DemoButton",
+                "properties": {},
+                "disabled": true,
+                "refresh": false,
+                "caption": "Button",
+                "type": "button",
+                "styles": ["button_primary"]
+            }, {
+                "key": "P660-C2-C0-C1-C0-C0-TI1",
+                "name": "ExplanationTabsWarning",
+                "properties": {},
+                "nodes": [{
+                    "text": "It is advised to use this style only for readonly content as validation errors are only shown on the currently active tab.",
+                    "nodeType": "text"
+                }],
+                "plainText": "It is advised to use this style only for readonly content as validation errors are only shown on the currently active tab.",
+                "type": "textitem",
+                "styles": ["text_warn"]
+            }, {
+                "key": "P660-C2-C0-C1-C0-C0-TI0",
+                "name": "ExplanationTabs",
+                "properties": {},
+                "nodes": [{
+                    "text": "When the contentstyle 'tabs' is applied on a container the direct child contaiers will be rendered as tabs.",
+                    "nodeType": "text"
+                }],
+                "plainText": "When the contentstyle 'tabs' is applied on a container the direct child contaiers will be rendered as tabs.",
+                "type": "textitem",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C1-C0-C0-C2-C1-F0",
+                "name": "DemoPerson.Zipcode",
+                "properties": {},
+                "questionText": "Zipcode",
+                "explainText": null,
+                "dataType": "text",
+                "rejectedValue": null,
+                "readonly": true,
+                "required": false,
+                "hasDomain": false,
+                "multiValued": false,
+                "refresh": false,
+                "displayLength": -1,
+                "domain": [],
+                "messages": [],
+                "values": ["5059AA"],
+                "validations": [],
+                "type": "field",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C1-C0-C0-C2-C1-F2",
+                "name": "DemoPerson.Number",
+                "properties": {},
+                "questionText": "Number",
+                "explainText": null,
+                "dataType": "integer",
+                "rejectedValue": null,
+                "readonly": true,
+                "required": false,
+                "hasDomain": false,
+                "multiValued": false,
+                "refresh": false,
+                "displayLength": -1,
+                "domain": [],
+                "messages": [],
+                "values": ["51"],
+                "validations": [],
+                "type": "field",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C1-C0-C0-C2-C1-F1",
+                "name": "DemoPerson.Street",
+                "properties": {},
+                "questionText": "Street",
+                "explainText": null,
+                "dataType": "text",
+                "rejectedValue": null,
+                "readonly": true,
+                "required": false,
+                "hasDomain": false,
+                "multiValued": false,
+                "refresh": false,
+                "displayLength": -1,
+                "domain": [],
+                "messages": [],
+                "values": ["Kalverstraat"],
+                "validations": [],
+                "type": "field",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C0-C0",
+                "name": "WidgetButtons",
+                "properties": {},
+                "children": ["P660-C2-C0-C0-C0-TI0", "P660-C2-C0-C0-C0-C1", "P660-C2-C0-C0-C0-C2", "P660-C2-C0-C0-C0-C3"],
+                "displayName": "Buttons",
+                "contentStyle": "dashboard_widget",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C1-C0-C0-C2-C0-F1",
+                "name": "DemoPerson.LastName",
+                "properties": {},
+                "questionText": "Last name",
+                "explainText": null,
+                "dataType": "text",
+                "rejectedValue": null,
+                "readonly": true,
+                "required": false,
+                "hasDomain": false,
+                "multiValued": false,
+                "refresh": false,
+                "displayLength": -1,
+                "domain": [],
+                "messages": [],
+                "values": ["de Vries"],
+                "validations": [],
+                "type": "field",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C0-C0-C2-C2-B0",
+                "name": "DemoButton",
+                "properties": {},
+                "disabled": false,
+                "refresh": false,
+                "caption": "Button",
+                "type": "button",
+                "styles": ["button_primary", "icon_home"]
+            }, {
+                "key": "P660-C2-C0-C1-C0-C0-C2-C0-F0",
+                "name": "DemoPerson.FirstName",
+                "properties": {},
+                "questionText": "First name",
+                "explainText": null,
+                "dataType": "text",
+                "rejectedValue": null,
+                "readonly": true,
+                "required": false,
+                "hasDomain": false,
+                "multiValued": false,
+                "refresh": false,
+                "displayLength": -1,
+                "domain": [],
+                "messages": [],
+                "values": ["Jan"],
+                "validations": [],
+                "type": "field",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C1-C0-C0-C2-C0-F3",
+                "name": "DemoPerson.DateOfBirth",
+                "properties": {},
+                "questionText": "Date of birth",
+                "explainText": null,
+                "dataType": "date",
+                "rejectedValue": null,
+                "readonly": true,
+                "required": false,
+                "hasDomain": false,
+                "multiValued": false,
+                "refresh": false,
+                "displayLength": -1,
+                "domain": [],
+                "messages": [],
+                "values": ["1984-11-11"],
+                "validations": [],
+                "type": "field",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C0-C0-C2-C2-B1",
+                "name": "DemoButton",
+                "properties": {},
+                "disabled": true,
+                "refresh": false,
+                "caption": "Button",
+                "type": "button",
+                "styles": ["button_primary", "icon_home"]
+            }, {
+                "key": "P660-C2-C0-C1-C0-C0-C2-C0-F2",
+                "name": "DemoPerson.Gender",
+                "properties": {},
+                "questionText": "Gender",
+                "explainText": null,
+                "dataType": "text",
+                "rejectedValue": null,
+                "readonly": true,
+                "required": false,
+                "hasDomain": false,
+                "multiValued": false,
+                "refresh": false,
+                "displayLength": -1,
+                "domain": [],
+                "messages": [],
+                "values": ["Male"],
+                "validations": [],
+                "type": "field",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C0-C0-C1",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C0-C0-C1-C0", "P660-C2-C0-C0-C0-C1-C1", "P660-C2-C0-C0-C0-C1-C2"],
+                "displayName": "Default button",
+                "contentStyle": "container",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C0-TI1",
+                "name": "LogOff",
+                "properties": {},
+                "nodes": [{"text": "Log off", "nodeType": "text"}],
+                "plainText": "Log off",
+                "type": "textitem",
+                "styles": ["logout_link"]
+            }, {
+                "key": "P660-C2-C0-C0-C0-C2",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C0-C0-C2-C0", "P660-C2-C0-C0-C0-C2-C1", "P660-C2-C0-C0-C0-C2-C2", "P660-C2-C0-C0-C0-C2-C3"],
+                "displayName": "Primary Button",
+                "contentStyle": "container",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C0-TI0",
+                "name": "Username",
+                "properties": {},
+                "nodes": [{"values": ["anonymousUser"], "nodeType": "value"}],
+                "plainText": "anonymousUser",
+                "type": "textitem",
+                "styles": ["authenticated_user"]
+            }, {
+                "key": "P660-C2-C0-C0-C0-C3",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C0-C0-C3-C0", "P660-C2-C0-C0-C0-C3-C1"],
+                "displayName": "Button Link",
+                "contentStyle": "container",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C0-C0-C2-C1-TI0",
+                "name": "PresentationstyleButtonPrimary",
+                "properties": {},
+                "nodes": [{"text": "button_primary", "nodeType": "text"}],
+                "plainText": "button_primary",
+                "type": "textitem",
+                "styles": ["text_label"]
+            }, {
+                "key": "P660-C2-C0-C1-C0-C0",
+                "name": "WidgetTabs",
+                "properties": {},
+                "children": ["P660-C2-C0-C1-C0-C0-TI0", "P660-C2-C0-C1-C0-C0-TI1", "P660-C2-C0-C1-C0-C0-C2"],
+                "displayName": null,
+                "contentStyle": "container",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C0-C0-C1-C0-B1",
+                "name": "DemoButton",
+                "properties": {},
+                "disabled": true,
+                "refresh": false,
+                "caption": "Button",
+                "type": "button",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C0-C0-C1-C0-B0",
+                "name": "DemoButton",
+                "properties": {},
+                "disabled": false,
+                "refresh": false,
+                "caption": "Button",
+                "type": "button",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C2",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C2-C0"],
+                "displayName": null,
+                "contentStyle": "dashboard_column4",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C0-C0-C1-C1-B0",
+                "name": "DemoButton",
+                "properties": {},
+                "disabled": false,
+                "refresh": false,
+                "caption": "Button",
+                "type": "button",
+                "styles": ["icon_home"]
+            }, {
+                "key": "P660-C2-C0-C0",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C0-C0"],
+                "displayName": null,
+                "contentStyle": "dashboard_column4",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C1",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C1-C0"],
+                "displayName": null,
+                "contentStyle": "dashboard_column4",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C0-C0-C1-C1-B1",
+                "name": "DemoButton",
+                "properties": {},
+                "disabled": true,
+                "refresh": false,
+                "caption": "Button",
+                "type": "button",
+                "styles": ["icon_home"]
+            }, {
+                "key": "P660-C2-C0-C0-C0-C3-C0-B0",
+                "name": "DemoButton",
+                "properties": {},
+                "disabled": false,
+                "refresh": false,
+                "caption": "Button",
+                "type": "button",
+                "styles": ["button_link"]
+            }, {
+                "key": "P660-C2-C0-C0-C0-C3-C0-B1",
+                "name": "DemoButton",
+                "properties": {},
+                "disabled": true,
+                "refresh": false,
+                "caption": "Button",
+                "type": "button",
+                "styles": ["button_link"]
+            }, {
+                "key": "P660-C2-C0-C0-C0-C1-C2",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C0-C0-C1-C2-TI0"],
+                "displayName": null,
+                "contentStyle": "container",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C1-C0-B3",
+                "name": "Cases",
+                "properties": {},
+                "disabled": false,
+                "refresh": false,
+                "caption": "Cases",
+                "type": "button",
+                "styles": ["icon_briefcase"]
+            }, {
+                "key": "P660-C2-C0-C0-C0-C1-C1",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C0-C0-C1-C1-B0", "P660-C2-C0-C0-C0-C1-C1-B1"],
+                "displayName": null,
+                "contentStyle": "container",
+                "type": "container",
+                "styles": ["inlinegroup"]
+            }, {
+                "key": "P660-C1-C0-B2",
+                "name": "Dossiers",
+                "properties": {},
+                "disabled": false,
+                "refresh": false,
+                "caption": "Dossiers",
+                "type": "button",
+                "styles": ["icon_user"]
+            }, {
+                "key": "P660-C2-C0-C0-C0-C1-C0",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C0-C0-C1-C0-B0", "P660-C2-C0-C0-C0-C1-C0-B1"],
+                "displayName": null,
+                "contentStyle": "container",
+                "type": "container",
+                "styles": ["inlinegroup"]
+            }, {
+                "key": "P660-C2-C0-C0-C0-C2-C0-B0",
+                "name": "DemoButton",
+                "properties": {},
+                "disabled": false,
+                "refresh": false,
+                "caption": "Button",
+                "type": "button",
+                "styles": ["button_primary"]
+            }, {
+                "key": "P660-C1-C0-B0",
+                "name": "Home",
+                "properties": {},
+                "disabled": false,
+                "refresh": false,
+                "caption": "Home",
+                "type": "button",
+                "styles": ["icon_home"]
+            }, {
+                "key": "P660-C1-C0",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C1-C0-B0", "P660-C1-C0-C1", "P660-C1-C0-B2", "P660-C1-C0-B3", "P660-C1-C0-B4", "P660-C1-C0-B5", "P660-C1-C0-B6", "P660-C1-C0-B7", "P660-C1-C0-B8"],
+                "displayName": null,
+                "contentStyle": "menubar",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C0-C0-C2-C3",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C0-C0-C2-C3-TI0", "P660-C2-C0-C0-C0-C2-C3-TI1"],
+                "displayName": null,
+                "contentStyle": "container",
+                "type": "container",
+                "styles": ["inlinegroup"]
+            }, {
+                "key": "P660-C2-C0",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C0", "P660-C2-C0-C1", "P660-C2-C0-C2"],
+                "displayName": null,
+                "contentStyle": "dashboard_row",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C0-C0-C2-C2",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C0-C0-C2-C2-B0", "P660-C2-C0-C0-C0-C2-C2-B1"],
+                "displayName": null,
+                "contentStyle": "container",
+                "type": "container",
+                "styles": ["inlinegroup"]
+            }, {
+                "key": "P660-C2-C0-C0-C0-C2-C1",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C0-C0-C2-C1-TI0"],
+                "displayName": null,
+                "contentStyle": "container",
+                "type": "container",
+                "styles": ["inlinegroup"]
+            }, {
+                "key": "P660-C2-C0-C0-C0-C2-C0",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C0-C0-C2-C0-B0", "P660-C2-C0-C0-C0-C2-C0-B1"],
+                "displayName": null,
+                "contentStyle": "container",
+                "type": "container",
+                "styles": ["inlinegroup"]
+            }, {
+                "key": "P660-C2-C0-C1-C0-C0-C2-C0",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C1-C0-C0-C2-C0-F0", "P660-C2-C0-C1-C0-C0-C2-C0-F1", "P660-C2-C0-C1-C0-C0-C2-C0-F2", "P660-C2-C0-C1-C0-C0-C2-C0-F3"],
+                "displayName": "Person",
+                "contentStyle": "container",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C0-C0-C3-C1",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C0-C0-C3-C1-TI0"],
+                "displayName": null,
+                "contentStyle": "container",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660-C2-C0-C0-C0-C3-C0",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C0-C0-C3-C0-B0", "P660-C2-C0-C0-C0-C3-C0-B1"],
+                "displayName": null,
+                "contentStyle": "container",
+                "type": "container",
+                "styles": ["inlinegroup"]
+            }, {
+                "key": "P660-C2-C0-C1-C0-C0-C2-C1",
+                "name": null,
+                "properties": {},
+                "children": ["P660-C2-C0-C1-C0-C0-C2-C1-F0", "P660-C2-C0-C1-C0-C0-C2-C1-F1", "P660-C2-C0-C1-C0-C0-C2-C1-F2"],
+                "displayName": "Adress",
+                "contentStyle": "container",
+                "type": "container",
+                "styles": []
+            }, {
+                "key": "P660",
+                "name": "Navigation",
+                "properties": {},
+                "children": ["P660-C0", "P660-C1", "P660-C2"],
+                "displayName": "Navigation",
+                "contentStyle": "page",
+                "messages": [],
+                "type": "page",
+                "styles": []
+            }],
+            "language": {"patterns": {"datetime": "yyyy-mm-dd hh:mm:ss", "date": "yyyy-mm-dd"}, "languageCode": "en-GB"}
+        };
+        var bqConfiguration = {
+            baseUri: '../../',
+            resourceUri: '/v2/',
+            blueriqPath: 'core/',
+            themePath: 'themes/bootstrap4/',
+            developmentMode: true,
+            sessionTimeout: 300,
+        };
+        var bqSessionId = 'my-session-id';
+    </script>
+
+    <!-- Libraries -->
+
+    <!-- jQuery -->
+    <script src="../../../core/lib/jquery/jquery.js" type="text/javascript"></script>
+    <script src="../../../core/lib/jquery/jquery.cookie.js" type="text/javascript"></script>
+
+    <!-- knockout -->
+    <script src="../../../core/lib/knockout/knockout-3.2.0.js" type="text/javascript"></script>
+    <script src="../../../core/lib/knockout/koExternalTemplateEngine_all.js" type="text/javascript"></script>
+
+    <script src="../../../core/lib/base64/base64.js" type="text/javascript"></script>
+
+    <!--------------- Core Resources --------------->
+
+    <!-- core -->
+    <script src="core.js" type="text/javascript"></script>
+    <script src="../../../core/default-handlers.js" type="text/javascript"></script>
+    <script src="../../../core/default-templates.js" type="text/javascript"></script>
+    <script src="../../../core/default-viewmodels.js" type="text/javascript"></script>
+
+
+    <!-- dashboard -->
+    <script src="../../../core/dashboard/dashboard.js" type="text/javascript"></script>
+    <script src="../../../core/dashboard/dashboard-handlers.js" type="text/javascript"></script>
+    <script src="../../../core/dashboard/dashboard-templates.js" type="text/javascript"></script>
+    <script src="../../../core/dashboard/dashboard-viewmodels.js" type="text/javascript"></script>
+
+
+    <!-- aggregatelist -->
+    <script src="../../../core/aggregatelist/aggregatelist.js" type="text/javascript"></script>
+    <script src="../../../core/aggregatelist/aggregatelist-templates.js" type="text/javascript"></script>
+
+    <link href="../../../core/aggregatelist/css/aggregatelist.css" media="all" rel="stylesheet" type="text/css">
+
+    <!-- cmis -->
+    <script src="../../../core/cmis/cmis-viewmodels.js" type="text/javascript"></script>
+    <script src="../../../core/cmis/cmis-templates.js" type="text/javascript"></script>
+
+    <!-- webfileupload -->
+    <script src="../../../core/webfileupload/webfileupload-handlers.js" type="text/javascript"></script>
+    <script src="../../../core/webfileupload/webfileupload-templates.js" type="text/javascript"></script>
+    <script src="../../../core/webfileupload/webfileupload-viewmodels.js" type="text/javascript"></script>
+
+    <!-- blueriq default styling -->
+    <link href="../../../core/lib/bqStyling/bqMain.css" media="all" rel="stylesheet" type="text/css">
+    <link href="../../../core/lib/bqStyling/bqTimeline.css" media="all" rel="stylesheet" type="text/css">
+    <link href="../../../core/lib/bqStyling/bqCommentlist.css" media="all" rel="stylesheet" type="text/css">
+    <link href="../../../core/lib/bqStyling/bqVisualization.css" media="all" rel="stylesheet" type="text/css">
+
+    <link href="../../../core/lib/fontawesome/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css">
+
+    <!--------------- theme Libraries --------------->
+
+    <!-- jQuery fileupload -->
+    <script src="../../../themes/bootstrap3/lib/fileupload/js/jquery.ui.widget.js" type="text/javascript"></script>
+    <script src="../../../themes/bootstrap3/lib/fileupload/js/jquery.fileupload.js" type="text/javascript"></script>
+    <script src="../../../themes/bootstrap3/lib/fileupload/js/jquery.fileupload-process.js" type="text/javascript"></script>
+    <script src="../../../themes/bootstrap3/lib/fileupload/js/jquery.fileupload-validate.js" type="text/javascript"></script>
+    <script src="../../../themes/bootstrap3/lib/fileupload/js/jquery.iframe-transport.js" type="text/javascript"></script>
+    <link href="../../../themes/bootstrap3/lib/fileupload/css/jquery.fileupload.css" media="all" rel="stylesheet" type="text/css">
+
+    <!-- moment -->
+    <script src="../../../themes/bootstrap3/lib/moment.js" type="text/javascript"></script>
+
+    <!-- Bootstrap3 -->
+    <script src="../../../themes/bootstrap3/lib/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+    <link href="../../../themes/bootstrap3/lib/bootstrap/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css">
+    <link href="../../../themes/bootstrap3/lib/bootstrap_switch/css/bootstrap-switch.min.css" media="all" rel="stylesheet" type="text/css">
+    <script src="../../../themes/bootstrap3/lib/bootstrap_switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <script src="../../../themes/bootstrap3/lib/bootstrap_datetimepicker/js/bootstrap-datetimepicker.js" type="text/javascript"></script>
+    <link href="../../../themes/bootstrap3/lib/bootstrap_datetimepicker/css/bootstrap-datetimepicker.css" media="all" rel="stylesheet" type="text/css">
+    <script src="../../../themes/bootstrap3/lib/knockout_bootstrap/knockout-bootstrap.js" type="text/javascript"></script>
+
+    <!-- other libraries -->
+    <script src="../../../core/lib/select2/select2.js" type="text/javascript"></script>
+    <link href="../../../core/lib/select2/select2.css" media="all" rel="stylesheet" type="text/css">
+    <link href="../../../core/lib/select2/select2-bootstrap.css" media="all" rel="stylesheet" type="text/css">
+
+    <script src="../../../themes/bootstrap3/lib/chartjs/chart.js" type="text/javascript"></script>
+    <script src="../../../themes/bootstrap3/lib/easypie/jquery.easy-pie-chart-1.0.1.js" type="text/javascript"></script>
+    <script src="../../../themes/bootstrap3/lib/numeral/numeral.min.js" type="text/javascript"></script>
+
+    <script src="../../../themes/bootstrap3/lib/odometer/odometer.js" type="text/javascript"></script>
+    <link href="../../../themes/bootstrap3/lib/odometer/themes/odometer-theme-default.css" media="all" rel="stylesheet" type="text/css">
+
+    <script src="../../../themes/bootstrap3/lib/chartjs_legend/src/legend.js" type="text/javascript"></script>
+    <link href="../../../themes/bootstrap3/lib/chartjs_legend/css/demo.css" media="all" rel="stylesheet" type="text/css">
+
+    <!-- CUSTOM CSS -->
+    <link href="../../../themes/bootstrap4/css/styles.css" media="all" rel="stylesheet" type="text/css"/>
+    <script src="../../../themes/bootstrap4/js/bootstrap4.js" type="text/javascript"></script>
+
+    <script>
+        infuser.defaults.templateUrl = '../../..';
+        infuser.defaults.loadingTemplate.content = ' ';
+    </script>
+
+
+    <!-- Load Extension Resources -->
+
+</head>
+<body class="default-layout" data-bind="bqMode: ''">
+
+
+<div id="data" data-bind="with: session">
+    <!-- ko if: page() -->
+    <div data-bind="template: { name: page().template, data: page }"></div>
+    <!-- /ko -->
+
+    <div class="row" data-bind="if: page() == null">
+        <div id="main" class="col-xs-12">
+            <div class="text-center">
+                <img src="../../../themes/bootstrap4/img/loading.gif" alt="Loading page" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Include notification modal -->
+<div data-bind="template: { name: 'themes/bootstrap3/template/notification/notification-modal', data: notification }"></div>
+</body>
+</html>
