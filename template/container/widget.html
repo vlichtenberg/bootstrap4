@@ -1,14 +1,11 @@
-<div class="panel panel-default">
-    <div class="panel-heading" data-bind="widgetBox: {}">
-        <h2 class="panel-title">
-            <!-- ko if: presentationStyles().icon -->
-            <span><i data-bind="attr: { class: presentationStyles().icon }"></i></span>
-            <!-- /ko -->
-            <span data-bind="text: displayName"></span>
-
-        </h2>
+<div class="card">
+    <div class="card-header" data-bind="widgetBox: {}">
+        <!-- ko if: presentationStyles().icon -->
+        <span><i data-bind="attr: { class: presentationStyles().icon }"></i></span>
+        <!-- /ko -->
+        <span data-bind="text: displayName"></span>
     </div>
-    <div class="panel-body" data-bind="foreach: children">
+    <div class="card-block" data-bind="foreach: children">
         <!-- ko template: { name: template } --><!-- /ko -->
     </div>
 </div>

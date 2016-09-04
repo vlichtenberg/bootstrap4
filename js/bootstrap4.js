@@ -1,4 +1,4 @@
-/*! Bootstrap4 1.0.0 2016-09-04 12:22 */
+/*! Bootstrap4 1.0.0 2016-09-04 12:42 */
 !function(ko, blueriq, moment) {
     "use strict";
     ko.bindingHandlers.bqDatePicker = {
@@ -76,7 +76,7 @@
     };
 }(window.ko, window.blueriq, window.moment), function(blueriq) {
     "use strict";
-    var templateRoot = "themes/bootstrap3/template/";
+    var templateRoot = "themes/bootstrap4/template/";
     blueriq.templates = {
         aggregateList: {
             alFooter: templateRoot + "aggregatelist/al_footer",

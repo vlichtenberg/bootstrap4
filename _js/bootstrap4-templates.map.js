@@ -1,5 +1,5 @@
 /**
- * Created by f.van.rijswijk on 4-9-2015.
+ * Created by v.lichtenberg on 4-9-2016.
  */
 
 /**
@@ -10,7 +10,7 @@
 (function (blueriq){
     'use strict';
 
-    var templateRoot = 'themes/bootstrap3/template/';
+    var templateRoot = 'themes/bootstrap4/template/';
     blueriq.templates = {
         aggregateList: {
             alFooter: templateRoot+'aggregatelist/al_footer',
