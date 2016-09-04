@@ -56,7 +56,7 @@ module.exports = function (grunt) {
         }
     );
 
-    grunt.registerTask('default-bootstrap3', ['jscs', 'jshint', 'http-server', 'watch']);
+    grunt.registerTask('default', ['jscs', 'jshint', 'http-server', 'watch']);
     grunt.loadNpmTasks('grunt-notify');
 
 };
