@@ -19,16 +19,14 @@
             <!-- ko text: displayName --><!-- /ko -->
             <span class="caret"></span>
         </a>
-        <ul class="dropdown-menu" role="menu" data-bind="foreach: children">
-            <li data-bind="click: handleClick">
-                <a href="#">
-                    <!-- ko if: presentationStyles().icon -->
-                    <span><i data-bind="attr: { class: 'button-icon ' + presentationStyles().icon }"></i> </span>
-                    <!-- /ko -->
-                    <!-- ko text: caption --><!-- /ko -->
-                </a>
-            </li>
-        </ul>
+        <div class="dropdown-menu" role="menu" data-bind="foreach: children">
+            <a class="dropdown-item" href="#" data-bind="click: handleClick">
+                <!-- ko if: presentationStyles().icon -->
+                <span><i data-bind="attr: { class: 'button-icon ' + presentationStyles().icon }"></i> </span>
+                <!-- /ko -->
+                <!-- ko text: caption --><!-- /ko -->
+            </a>
+        </div>
     </li>
     <!-- /ko-->
 </ul>
