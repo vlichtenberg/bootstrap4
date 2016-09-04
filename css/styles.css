@@ -6296,4 +6296,8 @@ a.text-danger:focus, a.text-danger:hover {
   padding-bottom: 12px;
 }
 
+.navbar-nav .nav-item + .nav-item {
+  margin-left: 25px;
+}
+
 /*# sourceMappingURL=styles.css.map */
