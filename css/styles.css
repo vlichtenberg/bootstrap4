@@ -6279,4 +6279,21 @@ a.text-danger:focus, a.text-danger:hover {
   }
 }
 
+.banner .nav-loggeduser {
+  margin: 10px 10px 0 0;
+}
+
+.banner .logo {
+  margin: 10px 0;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.navbar-nav .nav-link {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
 /*# sourceMappingURL=styles.css.map */

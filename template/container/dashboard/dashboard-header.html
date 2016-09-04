@@ -1,18 +1,14 @@
-<header role="banner" class="">
+<header role="banner" class="banner">
 		  <div class="row">
-		    <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="col-xs-6" >
-		    	<h1>
-			      	<a href="http://www.blueriq.com" class="brand">
-						<img data-bind="attr:{src: context.configuration.resourceUri+context.configuration.themePath+'img/logo.png'}">
-					</a>
-				</h1>
-		    </div>
-
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="col-xs-6">
-				<ul data-bind="foreach : children" class="nav navbar-nav navbar-right">
-		        	<li>
+				<a class="btn logo" href="#">
+					<img data-bind="attr:{src: context.configuration.resourceUri+context.configuration.themePath+'img/logo.png'}">
+				</a>
+		    </div>
+		    <div class="col-xs-6">
+				<ul data-bind="foreach : children" class="nav nav-inline nav-loggeduser pull-right">
+		        	<li class="nav-item">
 		                <!-- ko template: { name: template } --><!-- /ko -->
 		            </li>
 		        </ul>

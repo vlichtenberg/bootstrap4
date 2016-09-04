@@ -1,8 +1,8 @@
 <ul class="nav navbar-nav" data-bind="foreach: children">
     <!-- ko if: type == 'button' -->
-    <li data-bind="click: handleClick, css: {'active': presentationStyles().highlighted}">
+    <li class="nav-item" data-bind="click: handleClick, css: {'active': presentationStyles().highlighted}">
 
-        <a href="#">
+        <a class="nav-link" href="#">
             <!-- ko if: presentationStyles().icon -->
             <span><i data-bind="attr: { class: 'button-icon ' + presentationStyles().icon }"></i> </span>
             <!-- /ko -->
@@ -11,8 +11,8 @@
     </li>
     <!-- /ko-->
     <!-- ko if: type == 'container' -->
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             <!-- ko if: presentationStyles().icon -->
             <span><i data-bind="attr: { class: 'button-icon ' + presentationStyles().icon }"></i> </span>
             <!-- /ko -->

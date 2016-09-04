@@ -1,4 +1,4 @@
-/*! Bootstrap4 1.0.0 2016-09-04 12:42 */
+/*! Bootstrap4 1.0.0 2016-09-04 13:31 */
 !function(ko, blueriq, moment) {
     "use strict";
     ko.bindingHandlers.bqDatePicker = {
