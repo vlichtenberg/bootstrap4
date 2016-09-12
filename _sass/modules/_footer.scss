@@ -1,0 +1,14 @@
+.footer {
+    background-color: #044A92;
+    background-image: linear-gradient(to left,#233E75, $secondaryColor 50%);
+    color: white;
+    padding: 15px;
+
+    a {
+        color: white;
+    }
+
+    .logo {
+        @extend .pull-xs-right;
+    }
+}

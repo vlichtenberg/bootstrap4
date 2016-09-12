@@ -1,10 +1,19 @@
-<footer id="footer" class="container-fluid dashboard" role="contentinfo">
-	<div class="row">
-		<div class="col-xs-12" data-bind="foreach: children">
-			<!-- ko template: { name: template } --><!-- /ko -->
-		</div>
-
+<footer class="container-fluid dashboard footer" id="footer" role="contentinfo">
+	<div class="col-xs-12">
+		<!-- ko foreach: children-->
+		<!-- ko template: { name: template } --><!-- /ko -->
+		<!-- /ko -->
 	</div>
-	<p class="disclaimer">2014 © Blueriq. All Rights Reserved.</p>
 
+	<div class="col-xs-12 col-md-6">
+		<address>
+			<strong>Everest B.V.</strong><br>
+			<a href="tel:(073) 645 04 60"><span class="fa fa-phone"></span> +31 (0)73 645 04 60</a><br>
+			<a href="http://www.everest.nl"><span class="fa fa-globe"></span> www.everest.nl</a><br>
+			<a href="mailto:info@everest.nl"><span class="fa fa-envelope"></span> info@everest.nl</a>
+		</address>
+	</div>
+	<div class="col-xs-12 col-md-6">
+		<img class="logo img-responsive" data-bind="attr:{src: context.configuration.resourceUri+context.configuration.themePath+'img/footer.png'}">
+	</div>
 </footer>

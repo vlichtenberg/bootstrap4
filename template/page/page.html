@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row banner">
+    <div class="row header">
         <div class="col-xs-12">
 
             <a class="btn" href="#">
@@ -25,15 +25,17 @@
         </form>
     </div>
 
-    <div class="row" id="footer">
+    <footer class="row footer" id="footer" role="contentinfo">
         <div class="col-xs-12 col-md-6">
-            <h2>Blueriq B.V.</h2>
-            <span class="fa fa-phone"></span> +31 (0)73 6450 467<br>
-            <span class="fa fa-globe"></span> www.blueriq.com<br>
-            <span class="fa fa-envelope"></span> support@blueriq.com
+            <address>
+                <strong>Everest B.V.</strong><br>
+                <a href="tel:(073) 645 04 60"><span class="fa fa-phone"></span> +31 (0)73 645 04 60</a><br>
+                <a href="http://www.everest.nl"><span class="fa fa-globe"></span> www.everest.nl</a><br>
+                <a href="mailto:info@everest.nl"><span class="fa fa-envelope"></span> info@everest.nl</a>
+            </address>
         </div>
-        <div class="logo col-xs-12 col-md-6 pull-right text-right">
-            <img data-bind="attr:{src: context.configuration.resourceUri+context.configuration.themePath+'img/footer.png'}">
+        <div class="col-xs-12 col-md-6">
+            <img class="logo img-responsive" data-bind="attr:{src: context.configuration.resourceUri+context.configuration.themePath+'img/footer.png'}">
         </div>
-    </div>
+    </footer>
 </div>

@@ -5674,7 +5674,7 @@ a.bg-inverse:focus, a.bg-inverse:hover {
   float: left !important;
 }
 
-.pull-xs-right {
+.pull-xs-right, .footer .logo {
   float: right !important;
 }
 
@@ -6257,16 +6257,16 @@ a.text-danger:focus, a.text-danger:hover {
   }
 }
 
-.banner .nav-loggeduser {
+.header .nav-loggeduser {
   margin: 10px 10px 0 0;
 }
 
-.banner .btn {
+.header .btn {
   padding: 0;
   margin: 10px 0;
 }
 
-.banner .logo {
+.header .logo {
   height: 50px;
 }
 
@@ -6276,6 +6276,17 @@ a.text-danger:focus, a.text-danger:hover {
 
 .breadcrumb-item:not(.passed).active {
   color: black;
+}
+
+.footer {
+  background-color: #044A92;
+  background-image: linear-gradient(to left, #233E75, #2B4B8E 50%);
+  color: white;
+  padding: 15px;
+}
+
+.footer a {
+  color: white;
 }
 
 .navbar {
