@@ -1,0 +1,6 @@
+.breadcrumb-item:not(.passed) {
+    color: $breadcrumb-divider-color;
+    &.active {
+        color: black;
+    }
+}

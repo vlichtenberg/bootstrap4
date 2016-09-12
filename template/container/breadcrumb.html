@@ -1,10 +1,16 @@
-<ul class="breadcrumb" data-bind="foreach: { data: children, as: 'crumb'}">
-	<li data-bind="css: { active: crumb.properties().isCurrent, disabled: !crumb.properties().isPassed && !crumb.properties().isCurrent}">
-		<span class="bq-inline" data-bind="if: crumb.properties().isPassed">
-			<a href="#" data-bind="click: handleClick, text: crumb.properties().displayName"></a>
-		</span>
-		<span data-bind="ifnot: crumb.properties().isPassed">
-			<span data-bind="text: crumb.properties().displayName"></span>
-		</span>						
-	</li>
-</ul>
+<nav class="breadcrumb" data-bind="foreach: { data: children, as: 'crumb'}">
+	<!-- ko if: crumb.properties().isPassed -->
+		<a href="#" class="breadcrumb-item passed" data-bind="click: handleClick, text: crumb.properties().displayName"></a>
+	<!-- /ko -->
+
+	<!-- ko ifnot: crumb.properties().isPassed -->
+		<span class="breadcrumb-item" data-bind="text: crumb.properties().displayName, css: { 'active': crumb.properties().isCurrent }"></span>
+	<!-- /ko -->
+</nav>
+
+<!--<nav class="breadcrumb">-->
+	<!--<a class="breadcrumb-item" href="#">Home</a>-->
+	<!--<a class="breadcrumb-item" href="#">Library</a>-->
+	<!--<a class="breadcrumb-item" href="#">Data</a>-->
+	<!--<span class="breadcrumb-item active">Bootstrap</span>-->
+<!--</nav>-->
