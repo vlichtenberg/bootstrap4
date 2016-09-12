@@ -1,17 +1,17 @@
 <header role="banner" class="banner">
-		  <div class="row">
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="col-xs-6">
-				<a class="btn logo" href="#">
-					<img data-bind="attr:{src: context.configuration.resourceUri+context.configuration.themePath+'img/logo.png'}">
-				</a>
-		    </div>
-		    <div class="col-xs-6">
-				<ul data-bind="foreach : children" class="nav nav-inline nav-loggeduser pull-right">
-		        	<li class="nav-item">
-		                <!-- ko template: { name: template } --><!-- /ko -->
-		            </li>
-		        </ul>
-		    </div>
+	  <div class="row">
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="col-xs-6">
+			<a class="btn" href="#">
+				<img class="logo img-responsive" data-bind="attr:{src: context.configuration.resourceUri+context.configuration.themePath+'img/logo.png'}">
+			</a>
 		</div>
+		<div class="col-xs-6">
+			<ul data-bind="foreach : children" class="nav nav-inline nav-loggeduser pull-right">
+				<li class="nav-item">
+					<!-- ko template: { name: template } --><!-- /ko -->
+				</li>
+			</ul>
+		</div>
+	</div>
 </header>

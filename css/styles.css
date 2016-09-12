@@ -6261,8 +6261,13 @@ a.text-danger:focus, a.text-danger:hover {
   margin: 10px 10px 0 0;
 }
 
-.banner .logo {
+.banner .btn {
+  padding: 0;
   margin: 10px 0;
+}
+
+.banner .logo {
+  height: 50px;
 }
 
 .breadcrumb-item:not(.passed) {
