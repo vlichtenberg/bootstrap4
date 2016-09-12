@@ -33,11 +33,11 @@ module.exports = function (grunt) {
                         ]
                     },
                     options: {
-                        server: '/../',
-                            watchTask: true, // watch runs after browserSync
-                            port: 8282, // default port is 3000, browserSync admin is on http://localhost:3001/
-                            directory: true, // show directory listing
-                            open: false // don't open the browser automatically
+                        server: '../../',
+                        watchTask: true, // watch runs after browserSync
+                        port: 8282, // default port is 3000, browserSync admin is on http://localhost:3001/
+                        directory: true, // show directory listing
+                        open: false // don't open the browser automatically
                     }
                 }
             },
@@ -93,7 +93,7 @@ module.exports = function (grunt) {
                     tasks: ['sass:dev']
                 },
                 script: {
-                    files: ['_js/**/*.js', '_test/**/*.js'],
+                    files: ['_js/**/*.js'],
                     tasks: ['jscs', 'jshint', 'uglify:dev'] // the :run flag for karma is required
                 }
             }
